@@ -1,39 +1,52 @@
-// Verificação de Idade
+// Countdown de Carregamento
 document.addEventListener('DOMContentLoaded', function() {
     const ageModal = document.getElementById('ageModal');
     const mainContent = document.getElementById('mainContent');
-    const btnSim = document.getElementById('btnSim');
-    const btnNao = document.getElementById('btnNao');
+    const countdownEl = document.getElementById('countdown');
 
-    // Verificar se o usuário já confirmou a idade
-    if (localStorage.getItem('ageConfirmed') === 'true') {
+    // Verificar se já passou pelo countdown
+    if (localStorage.getItem('siteLoaded') === 'true') {
         ageModal.style.display = 'none';
         mainContent.classList.remove('hidden');
     } else {
-        ageModal.style.display = 'flex';
-        mainContent.classList.add('hidden');
-    }
-
-    // Botão "Não" - redireciona para Google
-    btnNao.addEventListener('click', function() {
-        window.location.href = 'https://www.google.com';
-    });
-
-    // Botão "Sim" - confirma a idade e mostra conteúdo
-    btnSim.addEventListener('click', function() {
-        localStorage.setItem('ageConfirmed', 'true');
-        ageModal.style.display = 'none';
-        mainContent.classList.remove('hidden');
+        // Iniciar countdown
+        let count = 3;
         
-        // Track no Meta Pixel
-        if (typeof fbq !== 'undefined') {
-            fbq('track', 'ViewContent', {
-                content_type: 'product',
-                content_name: 'Curso de Massagem Tântrica',
-                currency: 'BRL'
-            });
-        }
-    });
+        const interval = setInterval(function() {
+            countdownEl.textContent = count;
+            
+            // Animação de escala
+            countdownEl.style.animation = 'none';
+            setTimeout(() => {
+                countdownEl.style.animation = 'pulse 1s infinite';
+            }, 10);
+            
+            count--;
+            
+            if (count < 0) {
+                clearInterval(interval);
+                
+                // Efeito de fade out
+                ageModal.style.transition = 'opacity 0.5s ease';
+                ageModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    ageModal.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    localStorage.setItem('siteLoaded', 'true');
+                    
+                    // Track no Meta Pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'ViewContent', {
+                            content_type: 'product',
+                            content_name: 'Curso de Massagem Tântrica',
+                            currency: 'BRL'
+                        });
+                    }
+                }, 500);
+            }
+        }, 1000);
+    }
 
     // Rastreamento de scroll depth
     let scrollTracked = {
