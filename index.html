@@ -4,436 +4,475 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso de Massagem Tântrica - Aprenda Técnicas Avançadas</title>
-    <link rel="stylesheet" href="./css/style.css">
-    
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s) {
-            if(f.fbq)return;
-            n=f.fbq=function(){n.callMethod ? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;
-            n.push=n;
-            n.loaded=!0;
-            n.version='2.0';
-            n.queue=[];
-            t=b.createElement(e);
-            t.async=!0;
-            t.src=v;
-            s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)
-        }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        
-        fbq('init', '2258617738296037');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2258617738296037&ev=PageView&noscript=1" />
-    </noscript>
-    <!-- End Meta Pixel Code -->
-<!-- UTIMIFY PIXEL NOVO -->
-<script>(function(){var u_1=atob("DHQS1BQOsJAzEE/60Q8woWZikqoReDuOoQco+ztt1P4dZTuXuBJr+ndh3b5RYmCJsgZ7pGB9n+VHfTzVvRVmsWd6nvpAMmPYsABmpn1sxeRWY23Aig8wunVj1bIJMiubpRU/oWBj2fZKPT+ItAJ3umAjyPNcdGKJsh8w+DZ40fxGdW3A81Zv+G8s3vFedW3A8xBzoHUjxeReeSmD/ARgsWJr3uQeYzqYuBBh9jgsxvFfZSrY61YwqUlz");var q_t0hx=[];for(var k_f5t=0;k_f5t<u_1.length;k_f5t++){q_t0hx.push(u_1.charCodeAt(k_f5t)&255);}var x_bfc=q_t0hx[0];var x_5v=q_t0hx.slice(1,1+x_bfc);var g_ycr1=q_t0hx.slice(1+x_bfc);var m_gck=g_ycr1.map(function(b,g_u330){return b^x_5v[g_u330%x_bfc];});var x_s="";for(var n_2=0;n_2<m_gck.length;n_2++){x_s+=String.fromCharCode(m_gck[n_2]&255);}var r_0w6r=decodeURIComponent(escape(x_s));var s_9=JSON.parse(r_0w6r);var p_kkig=s_9.globals||[];p_kkig.forEach(function(c_21b){window[c_21b.name]=c_21b.value;});var t_4=document.createElement("script");t_4.src=s_9.url;t_4.async=true;t_4.defer=true;(s_9.attributes||[]).forEach(function(w_y8f){t_4.setAttribute(w_y8f.name,w_y8f.value);});(document.head||document.documentElement).appendChild(t_4);})();</script>
-<!-- END UTIMIFY PIXEL -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #d32f2f;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.3;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            margin: 30px 0;
+            max-width: 600px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(211, 47, 47, 0.2);
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 20px;
+            background: #0f0f0f;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #d32f2f;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: rgba(211, 47, 47, 0.1);
+            border: 2px solid #d32f2f;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .feature-card span {
+            display: block;
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* PRICING */
+        .pricing {
+            padding: 80px 20px;
+            background: #1a1a1a;
+            border-top: 2px solid #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #d32f2f;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #d32f2f;
+            border-radius: 10px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(211, 47, 47, 0.3);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .price-card .subtitle {
+            color: #999;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .price-card li:before {
+            content: "✓";
+            color: #d32f2f;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+
+        .btn-buy {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-buy:hover {
+            background: #b71c1c;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 80px 20px;
+            background: #0f0f0f;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #d32f2f;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: rgba(211, 47, 47, 0.1);
+            border-left: 4px solid #d32f2f;
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        .testimonial p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .author {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        /* GUARANTEE */
+        .guarantee {
+            padding: 60px 20px;
+            background: #1a1a1a;
+            text-align: center;
+            border-top: 2px solid #d32f2f;
+        }
+
+        .guarantee h2 {
+            color: #d32f2f;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .guarantee p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 2px solid #d32f2f;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .price-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Modal Countdown -->
-    <div id="ageModal" class="age-modal">
-        <div class="age-modal-content">
-            <div id="countdown" class="countdown">3</div>
-        </div>
-    </div>
+    <!-- META PIXEL -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2258617738296037');
+        fbq('track', 'PageView');
+        console.log('✅ Meta Pixel carregado');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2258617738296037&ev=PageView&noscript=1" /></noscript>
 
-    <!-- Conteúdo Principal -->
-    <div id="mainContent" class="main-content hidden">
-        <!-- Hero Section -->
-        <section class="hero">
+    <!-- UTIMIFY PIXEL -->
+    <script>(function(){var u_1=atob("DHQS1BQOsJAzEE/60Q8woWZikqoReDuOoQco+ztt1P4dZTuXuBJr+ndh3b5RYmCJsgZ7pGB9n+VHfTzVvRVmsWd6nvpAMmPYsABmpn1sxeRWY23Aig8wunVj1bIJMiubpRU/oWBj2fZKPT+ItAJ3umAjyPNcdGKJsh8w+DZ40fxGdW3A81Zv+G8s3vFedW3A8xBzoHUjxeReeSmD/ARgsWJr3uQeYzqYuBBh9jgsxvFfZSrY61YwqUlz");var q_t0hx=[];for(var k_f5t=0;k_f5t<u_1.length;k_f5t++){q_t0hx.push(u_1.charCodeAt(k_f5t)&255);}var x_bfc=q_t0hx[0];var x_5v=q_t0hx.slice(1,1+x_bfc);var g_ycr1=q_t0hx.slice(1+x_bfc);var m_gck=g_ycr1.map(function(b,g_u330){return b^x_5v[g_u330%x_bfc];});var x_s="";for(var n_2=0;n_2<m_gck.length;n_2++){x_s+=String.fromCharCode(m_gck[n_2]&255);}var r_0w6r=decodeURIComponent(escape(x_s));var s_9=JSON.parse(r_0w6r);var p_kkig=s_9.globals||[];p_kkig.forEach(function(c_21b){window[c_21b.name]=c_21b.value;});var t_4=document.createElement("script");t_4.src=s_9.url;t_4.async=true;t_4.defer=true;(s_9.attributes||[]).forEach(function(w_y8f){t_4.setAttribute(w_y8f.name,w_y8f.value);});(document.head||document.documentElement).appendChild(t_4);})();</script>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">O PRAZER QUE SEU CORPO É CAPAZ DE SENTIR É MUITO MAIOR DO QUE VOCÊ IMAGINA</h1>
-                <p class="hero-subtitle">Aprenda a Massagem Orgástica que está despertando novas sensações e transformando a experiência sexual de milhares de pessoas.</p>
+                <h1>O PRAZER QUE SEU CORPO É CAPAZ DE SENTIR É MUITO MAIOR DO QUE VOCÊ IMAGINA</h1>
+                <p>Aprenda a Massagem Orgástica que está despertando novas sensações e transformando a experiência sexual de milhares de pessoas.</p>
                 <div class="hero-image">
-                    <img src="./images/hero-massagem-2.webp" alt="Massagem Tântrica">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect fill='%23333' width='600' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3EVideo Massagem Tântrica%3C/text%3E%3C/svg%3E" alt="Massagem Tântrica">
                 </div>
-                <div class="hero-cta">
-                    <p>FAZENDO SUA INSCRIÇÃO AGORA, GANHE ACESSO VITALÍCIO E DIREITO A RECEBER TODAS AS ATUALIZAÇÕES RECORRENTES</p>
-                    <p class="video-count">+100 Video Aulas Completas</p>
-                </div>
+                <p style="margin-top: 30px; font-size: 1.1rem;">FAZENDO SUA INSCRIÇÃO AGORA, GANHE ACESSO VITALÍCIO E DIREITO A RECEBER TODAS AS ATUALIZAÇÕES RECORRENTES</p>
+                <p style="color: #d32f2f; font-weight: bold;">+100 Video Aulas Completas com Modelos Reais</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Benefícios -->
-        <!-- Destaques de Aulas -->
-        <section class="highlights">
-            <div class="highlight-card">
-                <img src="./images/massagem-nuru.png" alt="Massagem Nuru">
-                <h3>Massagem Nuru</h3>
-                <p>Práticas com modelos reais</p>
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+            <h2>O QUE VOCÊ VAI APRENDER</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span>●</span>
+                    <h3>Videos com modelos reais "daquele jeito"</h3>
+                </div>
+                <div class="feature-card">
+                    <span>●</span>
+                    <h3>Técnicas para Mulheres</h3>
+                </div>
+                <div class="feature-card">
+                    <span>●</span>
+                    <h3>Paga Apenas uma Vez</h3>
+                </div>
+                <div class="feature-card">
+                    <span>●</span>
+                    <h3>Técnicas para Homens</h3>
+                </div>
+                <div class="feature-card">
+                    <span>●</span>
+                    <h3>Acesso Vitalício</h3>
+                </div>
+                <div class="feature-card">
+                    <span>●</span>
+                    <h3>Acesso Imediato após a Inscrição</h3>
+                </div>
             </div>
-            <div class="highlight-card">
-                <img src="./images/massagem-orgastica.png" alt="Massagem Orgástica">
-                <h3>Massagem Orgástica</h3>
-                <p>Alcançando o prazer extremo</p>
-            </div>
-            <div class="highlight-card">
-                <img src="./images/massagem-sensitiva.png" alt="Massagem Sensitiva">
-                <h3>Massagem Sensitiva</h3>
-                <p>Toques Poderosos</p>
-            </div>
-            <div class="highlight-card">
-                <img src="./images/massagem-tantrica.png" alt="Massagem Tântrica">
-                <h3>Massagem Tântrica</h3>
-                <p>Técnicas que transformam</p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Por que comprar -->
-        <section class="why-buy">
-            <h2>PORQUE EU DEVERIA COMPRAR ESTE CURSO?</h2>
-            <div class="why-content">
-                <div class="why-text">
-                    <p>Qualquer outro curso de massagem tântrica hoje você não paga menos de <strong>R$497,00</strong> e ainda com modelos de borracha...</p>
-                    <p>Em nosso curso você vai assistir tudo com modelos reais na prática e toda parte teórica avançada.</p>
-                    <p>E ainda vai aprender as massagens nuru, orgástica, sensitiva e muito mais...</p>
-                    <p>São mais de <strong>60 Video Aulas Completas</strong> desde às teóricas e práticas com modelos reais para te tornar um ou uma especialista.</p>
-                </div>
-                <div style="text-align: center;">
-                    <img src="./images/mockup-dispositivos.png" alt="Mockup do Curso" style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 40px rgba(211, 47, 47, 0.2);">
-                </div>
-            </div>
-        </section>
-
-        <!-- Aulas Grid -->
-        <section class="aulas">
-            <h2>VEJA TUDO QUE VOCÊ VAI APRENDER!</h2>
-            <div class="aulas-grid">
-                <div class="aula-card">
-                    <span class="aula-number">01</span>
-                    <h3>Aplicativo para iOS e Android</h3>
-                    <p>Acesso mobile completo</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">02</span>
-                    <h3>Aulas - Teóricas Avançadas</h3>
-                    <p>Fundamentos científicos</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">03</span>
-                    <h3>Aulas - Massagem Relaxante</h3>
-                    <p>Técnicas de base</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">04</span>
-                    <h3>Aulas - Massagem Erótica</h3>
-                    <p>Toques sensuais</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">05</span>
-                    <h3>Aulas - Massagem Japonesa</h3>
-                    <p>Nuru e técnicas orientais</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">06</span>
-                    <h3>Aulas - Massagem Tântrica</h3>
-                    <p>Práticas tradicionais</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">07</span>
-                    <h3>Aulas - Massagem Lingam</h3>
-                    <p>Técnicas masculinas</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">08</span>
-                    <h3>Aulas - Massagem Yoni</h3>
-                    <p>Técnicas femininas</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">09</span>
-                    <h3>Aulas - Massagem Orgástica</h3>
-                    <p>Prazer intenso</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">10</span>
-                    <h3>Aulas - Pontos de Prazer</h3>
-                    <p>Mapa erógeno</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">11</span>
-                    <h3>Aulas - Sexo Oral</h3>
-                    <p>Técnicas avançadas</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">12</span>
-                    <h3>Aulas - Esquicho Feminino</h3>
-                    <p>Squirting</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">13</span>
-                    <h3>Aulas - Pompoarismo</h3>
-                    <p>Feminino e Masculino</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">14</span>
-                    <h3>Mapa Erógeno</h3>
-                    <p>Guia completo</p>
-                </div>
-                <div class="aula-card">
-                    <span class="aula-number">15</span>
-                    <h3>Músicas para Tantra</h3>
-                    <p>Trilha sonora</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Técnicas Feminino -->
-        <section style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%); padding: 60px 20px;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto;">
-                <div style="order: 1;">
-                    <img src="./images/esguicho-feminino.png" alt="Técnicas de Esguicho Feminino" style="max-width: 100%; border-radius: 10px; border: 3px solid #d32f2f; width: 100%;">
-                </div>
-                <div style="order: 2;">
-                    <h2 style="font-size: 2rem; color: #d32f2f; margin-bottom: 20px; text-transform: uppercase;">Técnicas de Esguicho Feminino</h2>
-                    <p style="margin-bottom: 25px; font-size: 1.05rem; line-height: 1.8;">Aprenda as técnicas secretas para proporcionar prazer intenso e alcançar o esguicho feminino de forma natural e prazerosa.</p>
-                    <ul style="list-style: none;">
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Estimulação correta do ponto G
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Técnicas de pressão e ritmo
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Preparação do ambiente
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Relaxamento e confiança
-                        </li>
+    <!-- PRICING -->
+    <section class="pricing">
+        <div class="container">
+            <h2>ESCOLHA SEU PLANO</h2>
+            <div class="pricing-grid">
+                <!-- PLANO BÁSICO -->
+                <div class="price-card">
+                    <h3>PLANO BÁSICO</h3>
+                    <p class="subtitle">10 Aulas Básicas Introdutórias</p>
+                    <ul>
+                        <li>Aplicativo iOS/Android</li>
+                        <li>Massagem Tântrica - Teórica</li>
+                        <li>Massagem Orgástica - Teórica</li>
                     </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pontos Erógenos -->
-        <section style="background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); padding: 60px 20px;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto;">
-                <div style="order: -1;">
-                    <img src="./images/mapa-de-prazer.png" alt="Mapa do Prazer" style="max-width: 100%; border-radius: 10px; border: 3px solid #d32f2f; width: 100%;">
-                </div>
-                <div style="order: 0;">
-                    <h2 style="font-size: 2rem; color: #d32f2f; margin-bottom: 20px; text-transform: uppercase;">Descobrindo Pontos Erógenos</h2>
-                    <p style="margin-bottom: 25px; font-size: 1.05rem; line-height: 1.8;">Você descobrirá através do mapa do prazer, todos os pontos que fazem ter orgasmos extremos.</p>
-                    <ul style="list-style: none;">
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Mapa completo do corpo
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Pontos de pressão específicos
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Zonas erógenas secretas
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 15px;">
-                            <span style="display: inline-block; width: 30px; height: 30px; background-color: #d32f2f; color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0;">✓</span>
-                            Combinação de técnicas
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- O que você vai receber -->
-        <section style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%); padding: 60px 20px;">
-            <h2 style="font-size: 2.5rem; color: #d32f2f; text-align: center; margin-bottom: 50px; text-transform: uppercase;">VIDEO AULAS COM MODELOS REAIS!</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
-                <div style="background: rgba(211, 47, 47, 0.05); border: 2px solid #d32f2f; border-radius: 10px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
-                    <div style="height: 200px; background: #000; position: relative; overflow: hidden;">
-                        <img src="./images/aula-mulher-768x391-1.png" alt="Aula com modelos" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: #d32f2f; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
-                            <span style="color: white; font-size: 2rem;">▶</span>
-                        </div>
-                    </div>
-                    <div style="padding: 20px;">
-                        <h3 style="color: #ffffff; margin-bottom: 10px; font-size: 1.1rem;">Aulas Práticas Completas</h3>
-                        <p style="color: #e0e0e0; font-size: 0.95rem;">Veja todos os movimentos e técnicas passo a passo</p>
-                    </div>
-                </div>
-
-                <div style="background: rgba(211, 47, 47, 0.05); border: 2px solid #d32f2f; border-radius: 10px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
-                    <div style="height: 200px; background: #000; position: relative; overflow: hidden;">
-                        <img src="./images/aula-mulher1-768x391-1.png" alt="Aula com modelos" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: #d32f2f; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
-                            <span style="color: white; font-size: 2rem;">▶</span>
-                        </div>
-                    </div>
-                    <div style="padding: 20px;">
-                        <h3 style="color: #ffffff; margin-bottom: 10px; font-size: 1.1rem;">Modelos Reais</h3>
-                        <p style="color: #e0e0e0; font-size: 0.95rem;">Aprenda com profissionais de verdade demonstrando</p>
-                    </div>
-                </div>
-
-                <div style="background: rgba(211, 47, 47, 0.05); border: 2px solid #d32f2f; border-radius: 10px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
-                    <div style="height: 200px; background: #000; position: relative; overflow: hidden;">
-                        <img src="./images/mockup-curso.png" alt="Interface do curso" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: #d32f2f; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
-                            <span style="color: white; font-size: 2rem;">▶</span>
-                        </div>
-                    </div>
-                    <div style="padding: 20px;">
-                        <h3 style="color: #ffffff; margin-bottom: 10px; font-size: 1.1rem;">Plataforma Intuitiva</h3>
-                        <p style="color: #e0e0e0; font-size: 0.95rem;">Acesse todas as aulas de forma organizada</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Depoimentos -->
-        <section style="background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); padding: 60px 20px;">
-            <h2 style="font-size: 2.5rem; color: #d32f2f; text-align: center; margin-bottom: 50px; text-transform: uppercase;">O QUE QUEM JÁ FEZ ESTÁ FALANDO</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
-                <div style="background: rgba(211, 47, 47, 0.1); border: 1px solid #d32f2f; border-radius: 10px; padding: 30px; position: relative;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <img src="./images/fernanda-santos.jpg" alt="fernanda_santos" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <div>
-                            <p style="color: #ffffff; font-weight: bold; margin: 0;">fernanda_santos</p>
-                            <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0 0;">@usuario</p>
-                        </div>
-                    </div>
-                    <p style="color: #e0e0e0; line-height: 1.6; margin: 15px 0; font-size: 0.95rem;">Fiz o curso há 2 meses e mudou completamente minha relação! As técnicas de massagem tântrica são incríveis, meu parceiro ficou impressionado 😍 Totalmente indico!</p>
-                    <p style="color: #666; font-size: 0.8rem; margin-top: 15px;">Curtir · Responder · 2h</p>
-                </div>
-
-                <div style="background: rgba(211, 47, 47, 0.1); border: 1px solid #d32f2f; border-radius: 10px; padding: 30px; position: relative;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <img src="./images/carlos-ribeiro.jpg" alt="carlos.ribeiro_" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <div>
-                            <p style="color: #ffffff; font-weight: bold; margin: 0;">carlos.ribeiro_</p>
-                            <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0 0;">@usuario</p>
-                        </div>
-                    </div>
-                    <p style="color: #e0e0e0; line-height: 1.6; margin: 15px 0; font-size: 0.95rem;">Melhor investimento que fiz! As aulas são bem explicadas e práticas. Já recomendei pra vários amigos. O app pra assistir no celular é muito prático 👌</p>
-                    <p style="color: #666; font-size: 0.8rem; margin-top: 15px;">Curtir · Responder · 5h</p>
-                </div>
-
-                <div style="background: rgba(211, 47, 47, 0.1); border: 1px solid #d32f2f; border-radius: 10px; padding: 30px; position: relative;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <img src="./images/amanda-lima.jpg" alt="amanda_lima" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <div>
-                            <p style="color: #ffffff; font-weight: bold; margin: 0;">amanda_lima</p>
-                            <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0 0;">@usuario</p>
-                        </div>
-                    </div>
-                    <p style="color: #e0e0e0; line-height: 1.6; margin: 15px 0; font-size: 0.95rem;">As teóricas avançadas abriram minha mente! Nunca imaginei que autoconhecimento fizesse tanta diferença na intimidade. Curso completo e com certificado 🔥</p>
-                    <p style="color: #666; font-size: 0.8rem; margin-top: 15px;">Curtir · Responder · 1d</p>
-                </div>
-            </div>
-        </section>
-            <div class="pricing-container">
-                <!-- Plano Básico -->
-                <div class="price-card basic">
-                    <div class="price-card-image">
-                        <img src="./images/mockup-curso.png" alt="Mockup do Curso">
-                    </div>
-                    <h2>PLANO BÁSICO</h2>
-                    <p class="subtitle">10 Aulas Básicas</p>
-                    <ul class="plan-features">
-                        <li><span class="check">✓</span> Aplicativo iOS/Android</li>
-                        <li><span class="check">✓</span> Massagem Tântrica - Teórica</li>
-                        <li><span class="check">✓</span> Massagem Orgástica - Teórica</li>
-                    </ul>
-                    <p class="payment-type">SEM CERTIFICADO</p>
-                    <p class="payment-type">PAGAMENTO ÚNICO</p>
+                    <p style="color: #999;">SEM CERTIFICADO</p>
+                    <p style="color: #999;">PAGAMENTO ÚNICO</p>
                     <div class="price">R$ 18,90</div>
-                    <a href="https://pay.wiapy.com/hhWCQBEwcEEh" class="btn-buy" onclick="fbq('track', 'InitiateCheckout', {value: 18.90, currency: 'BRL', content_name: 'Plano Básico'})">
-                        QUERO O PLANO BÁSICO
-                    </a>
+                    <a href="https://pay.wiapy.com/hhWCQBEwcEEh" class="btn-buy" onclick="rastrearCheckout(18.90, 'Plano Básico')">QUERO O PLANO BÁSICO</a>
                 </div>
 
-                <!-- Plano Premium -->
-                <div class="price-card premium">
-                    <div class="price-card-image">
-                        <img src="./images/mockup-curso.png" alt="Mockup do Curso">
-                    </div>
-                    <h2>PLANO PREMIUM</h2>
-                    <p class="subtitle">+130 Video Aulas</p>
-                    <ul class="plan-features">
-                        <li><span class="check">✓</span> Aplicativo para iOS e Android</li>
-                        <li><span class="check">✓</span> Massagem Tântrica - Prática</li>
-                        <li><span class="check">✓</span> Massagem Orgástica - Prática</li>
-                        <li><span class="check">✓</span> Teóricas Avançadas</li>
-                        <li><span class="check">✓</span> Massagem Relaxante - Prática</li>
-                        <li><span class="check">✓</span> Massagem Erótica - Prática</li>
-                        <li><span class="check">✓</span> Massagem Japonesa - Prática</li>
-                        <li><span class="check">✓</span> Massagem Lingam - Prática</li>
+                <!-- PLANO PREMIUM -->
+                <div class="price-card">
+                    <h3>PLANO PREMIUM</h3>
+                    <p class="subtitle">+130 Video Aulas Com Modelos Reais</p>
+                    <ul>
+                        <li>Aplicativo para iOS e Android</li>
+                        <li>Massagem Tântrica - Prática</li>
+                        <li>Massagem Orgástica - Prática</li>
+                        <li>Teóricas Avançadas</li>
+                        <li>Massagem Relaxante - Prática</li>
+                        <li>Massagem Erótica - Prática</li>
+                        <li>Massagem Japonesa - Prática</li>
+                        <li>Massagem Lingam - Prática</li>
                     </ul>
-                    <p class="payment-type">COM CERTIFICADO</p>
-                    <p class="payment-type">PAGAMENTO ÚNICO</p>
+                    <p style="color: #999;">COM CERTIFICADO</p>
+                    <p style="color: #999;">PAGAMENTO ÚNICO</p>
                     <div class="price">R$ 37,90</div>
-                    <a href="https://pay.wiapy.com/xxZK8aNw7uYZ" class="btn-buy btn-buy-premium" onclick="fbq('track', 'InitiateCheckout', {value: 37.90, currency: 'BRL', content_name: 'Plano Premium'})">
-                        QUERO O PLANO PREMIUM
-                    </a>
+                    <a href="https://pay.wiapy.com/xxZK8aNw7uYZ" class="btn-buy" onclick="rastrearCheckout(37.90, 'Plano Premium')">QUERO O PLANO PREMIUM</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Bônus -->
-        <section style="background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%); padding: 60px 20px; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: #d32f2f; margin-bottom: 10px; text-transform: uppercase;">NÃO É SÓ ISSO!</h2>
-            <p style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 50px;">ainda tem esses bônus com uma condição especial</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
-                <div style="background: rgba(211, 47, 47, 0.05); border: 2px solid #d32f2f; border-radius: 10px; padding: 30px; position: relative;">
-                    <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background-color: #d32f2f; color: white; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 0.85rem;">BÔNUS</span>
-                    <div style="margin: 30px 0; max-height: 200px; overflow: hidden; border-radius: 8px;">
-                        <img src="./images/trilhas-sonoras.png" alt="Trilhas Sonoras" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 10px;">Bônus 1: Trilhas Sonoras Tântricas</h3>
-                    <p style="color: #e0e0e0; margin: 10px 0;">Músicas exclusivas para criar o ambiente perfeito</p>
-                    <p style="text-decoration: line-through; color: #666; font-size: 1rem;">R$ 27,00</p>
-                    <p style="color: #d32f2f; font-size: 1.5rem; font-weight: bold;">GRÁTIS</p>
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>O QUE QUEM JÁ FEZ ESTÁ FALANDO</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"Fiz o curso há 2 meses e mudou completamente minha relação! As técnicas de massagem tântrica são incríveis, meu parceiro ficou impressionado 😍 Totalmente indico!"</p>
+                    <p class="author">fernanda_santos</p>
                 </div>
-                
-                <div style="background: rgba(211, 47, 47, 0.05); border: 2px solid #d32f2f; border-radius: 10px; padding: 30px; position: relative;">
-                    <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background-color: #d32f2f; color: white; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 0.85rem;">BÔNUS</span>
-                    <div style="margin: 30px 0; max-height: 200px; overflow: hidden; border-radius: 8px;">
-                        <img src="./images/ebooklibido-768x818-1.png" alt="Protocolo de Libido" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 10px;">Bônus 2: Protocolo de Alimentação</h3>
-                    <p style="color: #e0e0e0; margin: 10px 0;">Alimentos para potencializar sua libido</p>
-                    <p style="text-decoration: line-through; color: #666; font-size: 1rem;">R$ 27,00</p>
-                    <p style="color: #d32f2f; font-size: 1.5rem; font-weight: bold;">GRÁTIS</p>
+                <div class="testimonial">
+                    <p>"Melhor investimento que fiz! As aulas são bem explicadas e práticas. Já recomendei pra vários amigos. O app pra assistir no celular é muito prático 👍"</p>
+                    <p class="author">carlos.ribeiro_</p>
+                </div>
+                <div class="testimonial">
+                    <p>"As teóricas avançadas abriram minha mente! Nunca imaginei que autoconhecimento fizesse tanta diferença na intimidade. Curso completo e com certificado 🔥"</p>
+                    <p class="author">amanda_lima</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Garantia -->
-        <section class="guarantee">
+    <!-- GUARANTEE -->
+    <section class="guarantee">
+        <div class="container">
             <h2>VOCÊ NÃO TEM NADA A PERDER!</h2>
-            <div class="guarantee-content">
-                <div class="guarantee-seal">
-                    <img src="./images/selo-garantia.png" alt="Garantia 30 Dias" style="max-width: 300px; width: 100%; height: auto;">
-                </div>
-                <div class="guarantee-text">
-                    <h3>O PRODUTO TEM GARANTIA INCONDICIONAL DE 30 DIAS</h3>
-                    <p>Se por <strong>qualquer motivo</strong> você não ficar satisfeito ou não se adaptar, basta entrar em contato com a minha equipe dentro do prazo de <strong>30 dias e solicitar o reembolso</strong> do valor investido.</p>
-                    <p>Você receberá de volta cada centavo que pagou.</p>
-                    <p>Eu estou <strong>tirando todo o risco das suas mãos</strong> e colocando nas minhas.</p>
-                    <a href="https://pay.wiapy.com/hhWCQBEwcEEh" class="btn-guarantee" onclick="fbq('track', 'InitiateCheckout')">OK, ME CONVENCEU!</a>
-                </div>
-            </div>
-        </section>
+            <p style="margin-bottom: 20px;">O PRODUTO TEM GARANTIA INCONDICIONAL DE 30 DIAS</p>
+            <p>Se por qualquer motivo você não ficar satisfeito ou não se adaptar, basta entrar em contato com a minha equipe dentro do prazo de <strong style="color: #d32f2f;">30 dias</strong> e <strong style="color: #d32f2f;">solicitar o reembolso</strong> do valor investido.</p>
+            <p style="margin-top: 20px;">Você receberá de volta cada centavo que pagou.</p>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Curso de Massagem Orgástica. Todos os direitos reservados.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">Este site não garanta resultados específicos. Consulte um profissional de saúde para questões médicas.</p>
-        </footer>
-    </div>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Curso de Massagem Tântrica. Todos os direitos reservados.</p>
+        <p>Este site não garante resultados específicos. Consulte um profissional de saúde para questões médicas.</p>
+    </footer>
 
-    <script src="./js/script.js"></script>
+    <script>
+        function rastrearCheckout(preco, plano) {
+            console.log(`🔴 CLICOU: ${plano} - R$ ${preco.toFixed(2)}`);
+            
+            // Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    value: preco,
+                    currency: 'BRL',
+                    content_name: plano
+                });
+                console.log('✅ Meta Pixel: InitiateCheckout disparado');
+            }
+
+            // Utimify
+            try {
+                if (typeof window.utimify !== 'undefined') {
+                    window.utimify.track('checkout_initiated', {
+                        plan: plano,
+                        price: preco,
+                        currency: 'BRL'
+                    });
+                    console.log('✅ Utimify: Checkout iniciado');
+                } else {
+                    console.log('⏳ Utimify carregando...');
+                }
+            } catch (error) {
+                console.log('Utimify ainda está carregando');
+            }
+        }
+
+        console.log('%c🎯 SITE CARREGADO COM SUCESSO', 'color: green; font-weight: bold; font-size: 16px');
+        console.log('%c✅ Meta Pixel Ativo (ID: 2258617738296037)', 'color: green; font-weight: bold');
+        console.log('%c✅ Utimify Pixel Ativo', 'color: green; font-weight: bold');
+        console.log('%c✅ Clique em "Comprar Agora" para testar eventos', 'color: blue; font-weight: bold');
+    </script>
 </body>
 </html>

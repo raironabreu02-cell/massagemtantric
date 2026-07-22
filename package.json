@@ -1,15 +1,8 @@
 {
-  "name": "sexo-oral-perfeito",
+  "name": "curso-massagem-tantrica",
   "version": "1.0.0",
-  "description": "Curso online - O Sexo Oral Perfeito",
   "private": true,
-  "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'build'",
-    "start": "vercel dev"
-  },
-  "dependencies": {},
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }

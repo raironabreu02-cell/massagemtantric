@@ -1,35 +1,18 @@
-# Curso de Massagem Tântrica - Landing Page
+# Curso de Massagem Tântrica
 
-Landing page para venda do Curso de Massagem Orgástica.
+Site com:
+- ✅ Meta Pixel: 2258617738296037
+- ✅ Utimify Script seu
+- ✅ 2 Planos: Básico R$ 18,90 e Premium R$ 37,90
+- ✅ Eventos de checkout funcionando
 
-## 📁 Estrutura
+## Para subir
 
+```bash
+git init
+git add .
+git commit -m "Site massagem"
+git push -u origin main
 ```
-projeto_massagem/
-├── index.html          ← Página principal
-├── css/
-│   └── style.css      ← Estilos
-├── js/
-│   └── script.js      ← JavaScript
-├── images/            ← Adicione suas imagens aqui
-├── .gitignore
-└── README.md
-```
 
-## 🚀 Deploy no Vercel
-
-1. Crie repositório no GitHub
-2. Faça push dos arquivos
-3. Conecte no Vercel
-4. Deploy automático!
-
-## 💰 Links de Checkout
-
-- Plano Básico: https://pay.cakto.com.br/wwnyx3n_993073
-- Plano Premium: https://pay.cakto.com.br/rge4zxe_993035
-
-## 📊 Rastreamento
-
-Meta Pixel já está configurado com ID: 2258617738296037
-
-Sucesso!
+Depois no Vercel e era só!
