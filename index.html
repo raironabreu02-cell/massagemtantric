@@ -237,6 +237,57 @@
             box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
         }
 
+        .premium-card {
+            border: 3px solid #22c55e !important;
+            position: relative;
+        }
+
+        .badge-mais-vendido {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #22c55e;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .price-premium {
+            font-size: 3rem;
+            color: #22c55e;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        .btn-buy-premium {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-buy-premium:hover {
+            background: #16a34a;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+        }
+
         /* TESTIMONIALS */
         .testimonials {
             padding: 80px 20px;
@@ -626,7 +677,8 @@
                 </div>
 
                 <!-- PLANO PREMIUM -->
-                <div class="price-card">
+                <div class="price-card premium-card">
+                    <div class="badge-mais-vendido">MAIS VENDIDO</div>
                     <div style="margin-bottom: 20px; max-height: 150px; overflow: hidden; border-radius: 8px;">
                         <img src="./mockup-curso (1).png" alt="Mockup Premium" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
@@ -641,11 +693,31 @@
                         <li>Massagem Erótica - Prática</li>
                         <li>Massagem Japonesa - Prática</li>
                         <li>Massagem Lingam - Prática</li>
+                        <li>Massagem Tântrica Relaxante - Prática</li>
+                        <li>Massagem Yoni - Prática</li>
+                        <li>Massagem Tântrica Quicktantra - Prática</li>
+                        <li>Massagem Sensitiva - Prática</li>
+                        <li>Massagem Tântrica Energética - Prática</li>
+                        <li>Técnicas de Posições</li>
+                        <li>Pontos de Prazer</li>
+                        <li>Sexo Oral</li>
+                        <li>Esguicho Feminino</li>
+                        <li>Pompoarismo Feminino</li>
+                        <li>Pompoarismo Masculino</li>
+                        <li>Mapa Erógeno</li>
+                        <li>Músicas Ambiente para Tântra</li>
+                        <li>Músicas Ambiente sobre Sexo</li>
+                        <li>2 Bônus Especiais</li>
+                        <li>Certificado de Conclusão</li>
                     </ul>
-                    <p style="color: #999;">COM CERTIFICADO</p>
-                    <p style="color: #999;">PAGAMENTO ÚNICO</p>
-                    <div class="price">R$ 37,90</div>
-                    <a href="https://pay.wiapy.com/xxZK8aNw7uYZ" class="btn-buy" onclick="rastrearCheckout(37.90, 'Plano Premium')">QUERO O PLANO PREMIUM</a>
+                    <div style="text-align: center; margin: 25px 0;">
+                        <p style="color: #d32f2f; text-decoration: line-through; margin-bottom: 5px;">Valor Total: R$ 397.00</p>
+                        <p style="color: #999; font-size: 0.9rem;">DE R$ 397.00 POR APENAS...</p>
+                    </div>
+                    <div class="price-premium">R$ 37,90</div>
+                    <p style="color: #999; text-align: center; margin: 15px 0;">Pagamento único • Acesso vitalício • Sem mensalidades</p>
+                    <a href="https://pay.wiapy.com/xxZK8aNw7uYZ" class="btn-buy-premium" onclick="rastrearCheckout(37.90, 'Plano Premium')">SIM! QUERO O PLANO PREMIUM!</a>
+                    <p style="color: #d32f2f; text-align: center; margin-top: 15px; font-size: 0.85rem;">APROVEITE AGORA! Você NÃO vai encontrar esses preços depois</p>
                 </div>
             </div>
         </div>
