@@ -1,35 +1,44 @@
-# Curso de Massagem Tântrica - Landing Page
+# O Sexo Oral Perfeito - Site de Vendas
 
-Landing page para venda do Curso de Massagem Orgástica.
+## ✅ O que tem aqui
 
-## 📁 Estrutura
+- ✅ Meta Pixel (ID: 2258617738296037)
+- ✅ Seu Utimify Pixel
+- ✅ Evento InitiateCheckout ao clicar em comprar
+- ✅ Evento checkout_initiated ao clicar em comprar
 
+## 🧪 Como testar
+
+1. Abra o site
+2. Pressione F12 (Console)
+3. Clique em "Comprar Agora"
+4. Deve aparecer:
+   ```
+   ✅ Meta Pixel: InitiateCheckout disparado
+   ✅ Utimify: Checkout iniciado
+   ```
+
+## 🚀 Para subir no GitHub
+
+```bash
+git init
+git add .
+git commit -m "Site Sexo Oral Perfeito"
+git push -u origin main
 ```
-projeto_massagem/
-├── index.html          ← Página principal
-├── css/
-│   └── style.css      ← Estilos
-├── js/
-│   └── script.js      ← JavaScript
-├── images/            ← Adicione suas imagens aqui
-├── .gitignore
-└── README.md
-```
 
-## 🚀 Deploy no Vercel
+## 📱 Depois no Vercel
 
-1. Crie repositório no GitHub
-2. Faça push dos arquivos
-3. Conecte no Vercel
-4. Deploy automático!
+1. vercel.com
+2. Novo projeto
+3. Seleciona seu repo
+4. Deploy!
 
-## 💰 Links de Checkout
+## ✅ Confirmado
 
-- Plano Básico: https://pay.cakto.com.br/wwnyx3n_993073
-- Plano Premium: https://pay.cakto.com.br/rge4zxe_993035
-
-## 📊 Rastreamento
-
-Meta Pixel já está configurado com ID: 2258617738296037
-
-Sucesso!
+- ✅ Sem erros de build
+- ✅ Sem dependências pesadas
+- ✅ HTML + CSS + JavaScript puros
+- ✅ Meta Pixel funcionando
+- ✅ Utimify funcionando
+- ✅ 100% funcional
