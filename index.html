@@ -78,9 +78,21 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .feature-card {
@@ -88,24 +100,38 @@
             border: 2px solid #d32f2f;
             border-radius: 8px;
             padding: 20px;
-            text-align: center;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
         }
 
-        .feature-card span {
-            display: block;
-            font-size: 2rem;
-            color: #d32f2f;
-            margin-bottom: 10px;
+        .card-number {
+            background: #d32f2f;
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            text-align: left;
         }
 
         .feature-card h3 {
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-size: 1rem;
         }
 
         .feature-card p {
             color: #999;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* PRICING */
@@ -380,34 +406,184 @@
         </div>
     </section>
 
+    <!-- VÍDEO AULAS INTERATIVAS -->
+    <section style="padding: 80px 20px; background: #1a1a1a;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.2rem; color: #d32f2f; margin-bottom: 60px; text-transform: uppercase;">VIDEO AULAS COM MODELOS REAIS!</h2>
+            
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; align-items: start;">
+                <!-- PLAYER -->
+                <div>
+                    <div style="background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center;">
+                                <img src="./aula-mulher-768x391-1.png" alt="Aula" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; width: 60px; height: 60px; background: #d32f2f; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                    <span style="color: white; font-size: 0; width: 0; height: 0; border-left: 20px solid white; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 3px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: #999; margin-top: 15px; font-size: 0.9rem;">Aula 6 - Lingam: Com finalização Nuru | Duração: 5:57</p>
+                </div>
+
+                <!-- PLAYLIST -->
+                <div style="background: rgba(211, 47, 47, 0.1); border: 2px solid #d32f2f; border-radius: 10px; padding: 20px; max-height: 500px; overflow-y: auto;">
+                    <h3 style="color: #d32f2f; margin-bottom: 20px; font-size: 1rem;">Conteúdo (27)</h3>
+                    
+                    <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
+                        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 5px;">Aula 1 - Conexão</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:22:45</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
+                        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 5px;">Aula 2 - Massagem Lingam</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 09:51:48</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
+                        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 5px;">Aula 3 - Lingam: Alivando a circulação e estimulação da gland</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:13:29</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #d32f2f; margin-bottom: 10px; cursor: pointer; background: rgba(211, 47, 47, 0.2);">
+                        <p style="color: #d32f2f; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold;">● Aula 4 - Lingam: Técnica Avançada</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:07:38</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
+                        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 5px;">Aula 5 - Lingam: Estimulação Casal</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:08:32</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #d32f2f; margin-bottom: 10px; cursor: pointer; background: rgba(211, 47, 47, 0.2);">
+                        <p style="color: #d32f2f; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold;">● Aula 6 - Lingam: Com finalização Nuru</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:07:58</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
+                        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 5px;">Aula 7 - Lingam: Relaxante</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:05:18</p>
+                    </div>
+
+                    <div style="padding: 12px; border-left: 3px solid #666; cursor: pointer;">
+                        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 5px;">Aula 8 - Ligam: Relaxamento Casal</p>
+                        <p style="color: #999; font-size: 0.8rem;">⏱ 06:03:38</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURES -->
     <section class="features">
         <div class="container">
-            <h2>O QUE VOCÊ VAI APRENDER</h2>
+            <h2>Veja tudo que você vai aprender!</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <span>●</span>
-                    <h3>Videos com modelos reais "daquele jeito"</h3>
+                    <div class="card-number">01</div>
+                    <div class="card-content">
+                        <h3>Aplicativo para iOS e Android</h3>
+                        <p>Acesso mobile completo</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <span>●</span>
-                    <h3>Técnicas para Mulheres</h3>
+                    <div class="card-number">02</div>
+                    <div class="card-content">
+                        <h3>Aulas - Teóricas Avançadas</h3>
+                        <p>Fundamentos científicos</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <span>●</span>
-                    <h3>Paga Apenas uma Vez</h3>
+                    <div class="card-number">03</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Relaxante</h3>
+                        <p>Técnicas de base</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <span>●</span>
-                    <h3>Técnicas para Homens</h3>
+                    <div class="card-number">04</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Erótica</h3>
+                        <p>Toques sensuais</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <span>●</span>
-                    <h3>Acesso Vitalício</h3>
+                    <div class="card-number">05</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Japonesa</h3>
+                        <p>Nuru e técnicas orientais</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <span>●</span>
-                    <h3>Acesso Imediato após a Inscrição</h3>
+                    <div class="card-number">06</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Tântrica</h3>
+                        <p>Práticas tradicionais</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">07</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Lingam</h3>
+                        <p>Técnicas masculinas</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">08</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Yoni</h3>
+                        <p>Técnicas femininas</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">09</div>
+                    <div class="card-content">
+                        <h3>Aulas - Massagem Orgástica</h3>
+                        <p>Prazer intenso</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">10</div>
+                    <div class="card-content">
+                        <h3>Aulas - Pontos de Prazer</h3>
+                        <p>Mapa erógeno</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">11</div>
+                    <div class="card-content">
+                        <h3>Aulas - Sexo Oral</h3>
+                        <p>Técnicas avançadas</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">12</div>
+                    <div class="card-content">
+                        <h3>Aulas - Esguicho Feminino</h3>
+                        <p>Squirting</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">13</div>
+                    <div class="card-content">
+                        <h3>Aulas - Pompoarismo</h3>
+                        <p>Feminino e Masculino</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">14</div>
+                    <div class="card-content">
+                        <h3>Mapa Erógeno</h3>
+                        <p>Guia completo</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-number">15</div>
+                    <div class="card-content">
+                        <h3>Músicas para Tantra</h3>
+                        <p>Trilha sonora</p>
+                    </div>
                 </div>
             </div>
         </div>
