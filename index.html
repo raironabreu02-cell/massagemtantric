@@ -18,6 +18,212 @@
             line-height: 1.6;
         }
 
+        /* MODAL DE IDADE */
+        .age-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .age-modal.hidden {
+            display: none;
+        }
+
+        .age-modal-content {
+            background: #1a1a1a;
+            border: 3px solid #d32f2f;
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .age-modal-content h2 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .age-modal-content p {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .age-btn-yes,
+        .age-btn-no {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .age-btn-yes {
+            background: #22c55e;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .age-btn-yes:hover {
+            background: #16a34a;
+            transform: scale(1.02);
+        }
+
+        .age-btn-no {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .age-btn-no:hover {
+            background: #b71c1c;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 480px) {
+            .age-modal-content {
+                padding: 30px 20px;
+            }
+
+            .age-modal-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .age-modal-content p {
+                font-size: 0.9rem;
+            }
+
+            .age-btn-yes,
+            .age-btn-no {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* SEÇÕES RESPONSIVAS */
+        .why-buy-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-buy-text {
+            order: 1;
+        }
+
+        .why-buy-image {
+            order: 2;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .why-buy-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .why-buy-text {
+                order: 2;
+            }
+
+            .why-buy-image {
+                order: 1;
+            }
+        }
+
+        /* VIDEO AULAS SEÇÃO */
+        .video-aulas-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .video-player-container {
+            order: 1;
+        }
+
+        .video-playlist-container {
+            background: rgba(211, 47, 47, 0.1);
+            border: 2px solid #d32f2f;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+            order: 2;
+        }
+
+        @media (max-width: 1024px) {
+            .video-aulas-section {
+                grid-template-columns: 1fr 1.2fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-aulas-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .video-player-container {
+                order: 1;
+            }
+
+            .video-playlist-container {
+                order: 2;
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-aulas-section {
+                gap: 20px;
+            }
+
+            .video-playlist-container {
+                max-height: 300px;
+                padding: 15px;
+            }
+
+            .video-playlist-container h3 {
+                font-size: 0.9rem;
+            }
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -862,6 +1068,16 @@
     </style>
 </head>
 <body>
+    <!-- MODAL DE VERIFICAÇÃO DE IDADE -->
+    <div id="ageModal" class="age-modal">
+        <div class="age-modal-content">
+            <h2>Verificação de Idade</h2>
+            <p>Este site contém conteúdo adulto.</p>
+            <p style="font-weight: bold; color: #d32f2f;">Você tem mais de 18 anos?</p>
+            <button id="ageBtnYes" class="age-btn-yes">SIM, TENHO MAIS DE 18 ANOS</button>
+            <button id="ageBtnNo" class="age-btn-no">NÃO TENHO 18 ANOS</button>
+        </div>
+    </div>
     <!-- META PIXEL -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -937,15 +1153,15 @@
     <section style="padding: 80px 20px; background: #1a1a1a;">
         <div class="container">
             <h2 style="text-align: center; font-size: 2.2rem; color: #d32f2f; margin-bottom: 40px; text-transform: uppercase;">PORQUE EU DEVERIA COMPRAR ESTE CURSO?</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto;">
-                <div>
+            <div class="why-buy-section">
+                <div class="why-buy-text">
                     <p style="color: #e0e0e0; margin-bottom: 15px;">Qualquer outro curso de massagem tântrica hoje você não paga menos de <strong>R$497,00</strong> e ainda com modelos de borracha...</p>
                     <p style="color: #e0e0e0; margin-bottom: 15px;">Em nosso curso você vai assistir tudo com modelos reais na prática e toda parte teórica avançada.</p>
                     <p style="color: #e0e0e0; margin-bottom: 15px;">E ainda vai aprender as massagens nuru, orgástica, sensitiva e muito mais...</p>
                     <p style="color: #e0e0e0;">São mais de <strong style="color: #d32f2f;">60 Video Aulas Completas</strong> desde às teóricas e práticas com modelos reais para te tornar um ou uma especialista.</p>
                 </div>
-                <div style="text-align: center;">
-                    <img src="./mockup-curso (1).png" alt="Mockup do Curso" style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 40px rgba(211, 47, 47, 0.2);">
+                <div class="why-buy-image">
+                    <img src="./mockup-curso (1).png" alt="Mockup do Curso" style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 40px rgba(211, 47, 47, 0.2); width: 100%;">
                 </div>
             </div>
         </div>
@@ -956,9 +1172,9 @@
         <div class="container">
             <h2 style="text-align: center; font-size: 2.2rem; color: #d32f2f; margin-bottom: 60px; text-transform: uppercase;">VIDEO AULAS COM MODELOS REAIS!</h2>
             
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; align-items: start;">
+            <div class="video-aulas-section">
                 <!-- PLAYER -->
-                <div>
+                <div class="video-player-container">
                     <div style="background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
                         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
                             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center;">
@@ -973,7 +1189,7 @@
                 </div>
 
                 <!-- PLAYLIST -->
-                <div style="background: rgba(211, 47, 47, 0.1); border: 2px solid #d32f2f; border-radius: 10px; padding: 20px; max-height: 500px; overflow-y: auto;">
+                <div class="video-playlist-container">
                     <h3 style="color: #d32f2f; margin-bottom: 20px; font-size: 1rem;">Conteúdo (27)</h3>
                     
                     <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
@@ -1287,6 +1503,32 @@
         <p>&copy; 2026 Curso de Massagem Tântrica. Todos os direitos reservados.</p>
         <p>Este site não garante resultados específicos. Consulte um profissional de saúde para questões médicas.</p>
     </footer>
+
+    <script>
+        // MODAL DE VERIFICAÇÃO DE IDADE
+        window.addEventListener('load', function() {
+            const ageModal = document.getElementById('ageModal');
+            const ageBtnYes = document.getElementById('ageBtnYes');
+            const ageBtnNo = document.getElementById('ageBtnNo');
+
+            // Verificar se já foi confirmado
+            const ageConfirmed = localStorage.getItem('ageConfirmed');
+            if (ageConfirmed === 'true') {
+                ageModal.classList.add('hidden');
+            }
+
+            // Botão SIM
+            ageBtnYes.addEventListener('click', function() {
+                localStorage.setItem('ageConfirmed', 'true');
+                ageModal.classList.add('hidden');
+            });
+
+            // Botão NÃO
+            ageBtnNo.addEventListener('click', function() {
+                window.location.href = 'https://www.google.com';
+            });
+        });
+    </script>
 
     <script>
         function rastrearCheckout(preco, plano) {
