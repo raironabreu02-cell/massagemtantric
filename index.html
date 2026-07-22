@@ -288,7 +288,488 @@
             box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
         }
 
-        /* TESTIMONIALS */
+        .basic-card {
+            padding: 30px 20px !important;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .basic-card h3 {
+            font-size: 1.3rem !important;
+        }
+
+        .basic-card .subtitle {
+            font-size: 0.85rem !important;
+        }
+
+        .basic-card ul {
+            margin-bottom: 15px !important;
+        }
+
+        .basic-card li {
+            padding: 8px 0 !important;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO - MOBILE FIRST */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .features h2 {
+                font-size: 1.8rem;
+            }
+
+            .pricing h2 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .premium-card {
+                order: -1;
+            }
+
+            .basic-card {
+                max-width: 100%;
+            }
+
+            .testimonials h2 {
+                font-size: 1.8rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .feature-card {
+                gap: 10px;
+            }
+
+            .card-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .card-content h3 {
+                font-size: 0.9rem;
+            }
+
+            .card-content p {
+                font-size: 0.8rem;
+            }
+
+            .price-card {
+                padding: 25px 15px !important;
+            }
+
+            .price-card ul {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+
+            .price-card li {
+                padding: 8px 0 !important;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 60px 15px;
+                min-height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .hero-image {
+                margin: 20px 0;
+            }
+
+            .features,
+            .pricing,
+            .testimonials {
+                padding: 50px 15px !important;
+            }
+
+            .features h2,
+            .pricing h2,
+            .testimonials h2 {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px;
+            }
+
+            .feature-card {
+                padding: 15px !important;
+                gap: 12px;
+            }
+
+            .card-number {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .card-content h3 {
+                font-size: 0.85rem;
+            }
+
+            .card-content p {
+                font-size: 0.75rem;
+            }
+
+            .price-card {
+                padding: 20px 12px !important;
+            }
+
+            .price-card h3 {
+                font-size: 1.2rem !important;
+            }
+
+            .price-card .subtitle {
+                font-size: 0.75rem;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+
+            .price-premium {
+                font-size: 2.5rem;
+            }
+
+            .btn-buy,
+            .btn-buy-premium {
+                padding: 12px !important;
+                font-size: 0.9rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .testimonial {
+                padding: 20px !important;
+            }
+
+            .testimonial-avatar {
+                width: 60px;
+                height: 60px;
+            }
+
+            .badge-mais-vendido {
+                font-size: 0.75rem;
+                padding: 6px 15px;
+                top: -12px;
+            }
+
+            .guarantee {
+                padding: 50px 15px !important;
+            }
+
+            .guarantee h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* RESPONSIVO - TABLET */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .premium-card {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .basic-card {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        /* RESPONSIVO - DESKTOP */
+        @media (min-width: 1025px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* RESPONSIVO - LAYOUT FLEX PARA GARANTIA */
+        @media (max-width: 768px) {
+            .guarantee-content {
+                flex-direction: column !important;
+                gap: 30px !important;
+            }
+
+            .guarantee-image,
+            .guarantee-text {
+                flex: 1 !important;
+                min-width: 100% !important;
+            }
+        }
+
+        /* RESPONSIVO - BÔNUS */
+        @media (max-width: 768px) {
+            .bonus-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* RESPONSIVO - FOOTER */
+        @media (max-width: 480px) {
+            footer {
+                padding: 30px 15px !important;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* RESPONSIVO - VIEWPORT META */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* RESPONSIVO - INPUT TOUCH FRIENDLY */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-buy,
+            .btn-buy-premium,
+            a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* RESPONSIVO - IMAGENS */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* RESPONSIVO - HERO IMAGE */
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* RESPONSIVO - MOBILE NAV */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 12px;
+            }
+        }
+
+        /* RESPONSIVO - GARANTIA LAYOUT */
+        @media (max-width: 768px) {
+            .guarantee {
+                text-align: center;
+            }
+
+            .guarantee-flex {
+                flex-direction: column !important;
+            }
+
+            .guarantee img {
+                max-width: 150px;
+                margin: 0 auto 20px;
+            }
+        }
+
+        /* RESPONSIVO - ESPAÇAMENTO */
+        @media (max-width: 480px) {
+            section {
+                padding: 40px 0 !important;
+            }
+
+            .features,
+            .pricing,
+            .testimonials,
+            .guarantee {
+                padding: 40px 15px !important;
+            }
+        }
+
+        /* RESPONSIVO - BÔNUS LAYOUT */
+        @media (max-width: 768px) {
+            .bonus-item {
+                flex: 1 !important;
+                min-width: 100% !important;
+            }
+        }
+
+        /* RESPONSIVO - TEXT SIZES */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 1.3rem !important; }
+            h3 { font-size: 1.1rem !important; }
+        }
+
+        /* RESPONSIVO - PADDING/MARGIN */
+        @media (max-width: 480px) {
+            .price-card,
+            .testimonial,
+            .feature-card {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* RESPONSIVO - HERO ADJUSTMENTS */
+        @media (max-width: 768px) {
+            .hero {
+                background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+            }
+        }
+
+        /* RESPONSIVO - PRICING GRID FIX */
+        .pricing-grid {
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                max-width: 100%;
+            }
+        }
+
+        /* RESPONSIVO - FEATURES LAST */
+        @media (max-width: 768px) {
+            .features-grid {
+                padding: 0;
+            }
+        }
+
+        /* RESPONSIVO - BUTTON SIZING */
+        .btn-buy,
+        .btn-buy-premium {
+            width: 100%;
+            min-height: 44px;
+        }
+
+        @media (max-width: 480px) {
+            .btn-buy,
+            .btn-buy-premium {
+                padding: 15px 10px !important;
+                min-height: 48px;
+            }
+        }
+
+        /* RESPONSIVO - FINAL ADJUSTMENTS */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            font-size: 16px;
+        }
+
+        /* RESPONSIVO - HERO GRADIENT */
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 350px;
+            }
+        }
+
+        /* RESPONSIVO - BORDER RADIUS */
+        @media (max-width: 480px) {
+            .feature-card,
+            .price-card,
+            .testimonial {
+                border-radius: 8px;
+            }
+        }
+
+        /* RESPONSIVO - VIEWPORT */
+        @media (max-width: 320px) {
+            .hero-content h1 {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .features h2,
+            .pricing h2,
+            .testimonials h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* RESPONSIVO */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .bonus-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bonus-grid {
+                gap: 20px;
+            }
+        }
+
         .testimonials {
             padding: 80px 20px;
             background: #0f0f0f;
@@ -659,19 +1140,19 @@
             <h2>ESCOLHA SEU PLANO</h2>
             <div class="pricing-grid">
                 <!-- PLANO BÁSICO -->
-                <div class="price-card">
+                <div class="price-card basic-card">
                     <div style="margin-bottom: 20px; max-height: 150px; overflow: hidden; border-radius: 8px;">
                         <img src="./mockup-curso (1).png" alt="Mockup Básico" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <h3>PLANO BÁSICO</h3>
                     <p class="subtitle">10 Aulas Básicas Introdutórias</p>
-                    <ul>
+                    <ul style="max-height: 200px; overflow: hidden;">
                         <li>Aplicativo iOS/Android</li>
                         <li>Massagem Tântrica - Teórica</li>
                         <li>Massagem Orgástica - Teórica</li>
                     </ul>
-                    <p style="color: #999;">SEM CERTIFICADO</p>
-                    <p style="color: #999;">PAGAMENTO ÚNICO</p>
+                    <p style="color: #d32f2f; font-weight: bold; margin: 15px 0;">SEM CERTIFICADO</p>
+                    <p style="color: #999; font-size: 0.85rem;">PAGAMENTO ÚNICO</p>
                     <div class="price">R$ 18,90</div>
                     <a href="https://pay.wiapy.com/hhWCQBEwcEEh" class="btn-buy" onclick="rastrearCheckout(18.90, 'Plano Básico')">QUERO O PLANO BÁSICO</a>
                 </div>
