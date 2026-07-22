@@ -1,57 +1,35 @@
-# O Sexo Oral Perfeito - Site de Vendas
+# Curso de Massagem Tântrica - Landing Page
 
-## ✅ Configuração Confirmada
+Landing page para venda do Curso de Massagem Orgástica.
 
-- **Meta Pixel ID:** 2258617738296037 ✅
-- **Utimify Script:** Seu script novo adicionado ✅
-- **Estrutura:** Copiada do site que funcionou ✅
+## 📁 Estrutura
 
-## 🎯 O que está configurado
-
-### Meta Pixel
-- ✅ PageView ao carregar
-- ✅ ViewContent ao rolar (25%, 50%, 75%, 100%)
-- ✅ InitiateCheckout ao clicar em comprar
-
-### Utimify
-- ✅ Seu script novo carregado
-- ✅ Evento checkout_initiated ao clicar em comprar
-- ✅ Envia plano e preço
-
-## 🧪 Como testar
-
-1. Descompacte o arquivo
-2. Abra `index.html` no navegador
-3. Espere contar 3, 2, 1
-4. Pressione F12 (Console)
-5. Clique em "Quero o Plano"
-6. Deve aparecer:
-   ```
-   🔴 CLICOU: Plano Premium - R$ 37.90
-   ✅ Utimify: Checkout iniciado
-   ✅ Meta Pixel: InitiateCheckout disparado
-   ```
-
-## 🚀 Para subir no GitHub
-
-```bash
-git init
-git add .
-git commit -m "Site Sexo Oral Perfeito - Funcionando"
-git push -u origin main
+```
+projeto_massagem/
+├── index.html          ← Página principal
+├── css/
+│   └── style.css      ← Estilos
+├── js/
+│   └── script.js      ← JavaScript
+├── images/            ← Adicione suas imagens aqui
+├── .gitignore
+└── README.md
 ```
 
-## 📱 No Vercel
+## 🚀 Deploy no Vercel
 
-1. vercel.com
-2. Novo projeto
-3. Seleciona seu repositório
+1. Crie repositório no GitHub
+2. Faça push dos arquivos
+3. Conecte no Vercel
 4. Deploy automático!
 
-## ✅ Confirmado Funcionando
+## 💰 Links de Checkout
 
-- ✅ Meta Pixel seu
-- ✅ Utimify seu
-- ✅ Estrutura que funcionou
-- ✅ Eventos disparando
-- ✅ Pronto para vender
+- Plano Básico: https://pay.cakto.com.br/wwnyx3n_993073
+- Plano Premium: https://pay.cakto.com.br/rge4zxe_993035
+
+## 📊 Rastreamento
+
+Meta Pixel já está configurado com ID: 2258617738296037
+
+Sucesso!

@@ -1,25 +1,3 @@
-// Função para rastrear checkout no Utimify
-function rastrearCheckout(preco, plano) {
-    console.log(`🔴 CLICOU: ${plano} - R$ ${preco.toFixed(2)}`);
-    
-    // Utimify
-    try {
-        if (typeof window.utimify !== 'undefined') {
-            window.utimify.track('checkout_initiated', {
-                plan: plano,
-                price: preco,
-                currency: 'BRL',
-                timestamp: new Date().toISOString()
-            });
-            console.log('✅ Utimify: Checkout iniciado');
-        } else {
-            console.log('⏳ Utimify carregando...');
-        }
-    } catch (error) {
-        console.log('Utimify ainda está carregando');
-    }
-}
-
 // Countdown de Carregamento
 document.addEventListener('DOMContentLoaded', function() {
     const ageModal = document.getElementById('ageModal');
@@ -61,10 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (typeof fbq !== 'undefined') {
                         fbq('track', 'ViewContent', {
                             content_type: 'product',
-                            content_name: 'Curso Sexo Oral Perfeito',
+                            content_name: 'Curso de Massagem Tântrica',
                             currency: 'BRL'
                         });
-                        console.log('✅ Meta Pixel: ViewContent disparado');
                     }
                 }, 500);
             }
@@ -87,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 fbq('track', 'ViewContent', { scroll_depth: '25%' });
             }
             scrollTracked['25'] = true;
-            console.log('✅ Meta Pixel: Scroll 25% rastreado');
         }
         
         if (scrollPercentage >= 50 && !scrollTracked['50']) {
@@ -95,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 fbq('track', 'ViewContent', { scroll_depth: '50%' });
             }
             scrollTracked['50'] = true;
-            console.log('✅ Meta Pixel: Scroll 50% rastreado');
         }
         
         if (scrollPercentage >= 75 && !scrollTracked['75']) {
@@ -103,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 fbq('track', 'ViewContent', { scroll_depth: '75%' });
             }
             scrollTracked['75'] = true;
-            console.log('✅ Meta Pixel: Scroll 75% rastreado');
         }
         
         if (scrollPercentage >= 100 && !scrollTracked['100']) {
@@ -111,13 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 fbq('track', 'ViewContent', { scroll_depth: '100%' });
             }
             scrollTracked['100'] = true;
-            console.log('✅ Meta Pixel: Scroll 100% rastreado');
         }
     });
-
-    // Log inicial
-    console.log('%c🎯 SITE CARREGADO COM SUCESSO', 'color: green; font-weight: bold; font-size: 16px');
-    console.log('%c✅ Meta Pixel Ativo (ID: 2258617738296037)', 'color: green; font-weight: bold');
-    console.log('%c✅ Utimify Pixel Ativo', 'color: green; font-weight: bold');
-    console.log('%c✅ Clique em "Comprar Agora" para testar', 'color: blue; font-weight: bold');
 });
