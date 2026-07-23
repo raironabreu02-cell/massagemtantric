@@ -18,527 +18,6 @@
             line-height: 1.6;
         }
 
-        /* MODAL SIMPLES DE EXIT INTENT */
-        .exit-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .exit-modal.show {
-            display: flex;
-        }
-
-        .exit-modal-content {
-            background: #1a1a1a;
-            border: 3px solid #22c55e;
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-        }
-
-        .exit-modal-content h2 {
-            font-size: 1.5rem;
-            color: #22c55e;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .exit-riscado {
-            color: #999;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .exit-promo {
-            font-size: 3rem;
-            color: #22c55e;
-            font-weight: bold;
-            margin: 5px 0 10px;
-        }
-
-        .exit-desc {
-            font-size: 1.2rem;
-            color: #fff;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .exit-subtitle {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 25px;
-        }
-
-        .exit-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .exit-btn-yes,
-        .exit-btn-no {
-            padding: 15px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .exit-btn-yes {
-            background: #22c55e;
-            color: white;
-        }
-
-        .exit-btn-yes:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-        }
-
-        .exit-btn-no {
-            background: #333;
-            color: #ccc;
-            border: 2px solid #666;
-        }
-
-        .exit-btn-no:hover {
-            background: #444;
-            color: #fff;
-            border-color: #999;
-        }
-
-        .exit-btn-no:active,
-        .exit-btn-yes:active {
-            transform: scale(0.98);
-        }
-
-        @media (max-width: 480px) {
-            .exit-modal-content {
-                padding: 30px 20px;
-            }
-
-            .exit-modal-content h2 {
-                font-size: 1.3rem;
-            }
-
-            .exit-promo {
-                font-size: 2.5rem;
-            }
-
-            .exit-desc {
-                font-size: 1rem;
-            }
-
-            .exit-btn-yes,
-            .exit-btn-no {
-                padding: 14px 16px;
-                font-size: 0.95rem;
-            }
-        }
-
-        /* MODAL DE DOWNSELL (EXIT INTENT) */
-        .downsell-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.97);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9997;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .downsell-modal.show {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .downsell-content {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a1a 100%);
-            border: 3px solid #22c55e;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: slideUp 0.4s ease;
-            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.3);
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .downsell-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #999;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        .downsell-close:hover {
-            color: #d32f2f;
-        }
-
-        .downsell-content h2 {
-            font-size: 1.8rem;
-            color: #22c55e;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .downsell-subtitle {
-            color: #e0e0e0;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-
-        .downsell-offer {
-            background: rgba(211, 47, 47, 0.05);
-            border: 2px solid rgba(34, 197, 94, 0.3);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .downsell-price-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-
-        .downsell-original {
-            text-align: center;
-        }
-
-        .downsell-arrow {
-            color: #22c55e;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .downsell-promotional {
-            text-align: center;
-        }
-
-        .downsell-btn {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background: #22c55e;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            margin: 20px 0;
-        }
-
-        .downsell-btn:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
-        }
-
-        .downsell-btn:active {
-            transform: scale(0.98);
-        }
-
-        @media (max-width: 480px) {
-            .downsell-content {
-                padding: 25px 15px;
-            }
-
-            .downsell-content h2 {
-                font-size: 1.3rem;
-            }
-
-            .downsell-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .downsell-price-box {
-                gap: 10px;
-                margin: 15px 0;
-            }
-
-            .downsell-promotional span {
-                font-size: 2rem !important;
-            }
-
-            .downsell-btn {
-                padding: 15px;
-                font-size: 0.95rem;
-            }
-
-            .downsell-close {
-                font-size: 1.5rem;
-                top: 10px;
-                right: 10px;
-            }
-        }
-
-        /* MODAL DE IDADE */
-        .age-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            overflow: hidden;
-        }
-
-        .age-modal.hidden {
-            display: none !important;
-        }
-
-        .age-modal-content {
-            background: #1a1a1a;
-            border: 3px solid #d32f2f;
-            border-radius: 15px;
-            padding: 50px 40px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .age-modal-content h2 {
-            font-size: 2rem;
-            color: #d32f2f;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .age-modal-content p {
-            color: #e0e0e0;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .age-btn-yes,
-        .age-btn-no {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 12px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .age-btn-yes {
-            background: #22c55e;
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .age-btn-yes:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-        }
-
-        .age-btn-no {
-            background: #d32f2f;
-            color: white;
-        }
-
-        .age-btn-no:hover {
-            background: #b71c1c;
-            transform: scale(1.02);
-        }
-
-        @media (max-width: 480px) {
-            .age-modal-content {
-                padding: 30px 20px;
-            }
-
-            .age-modal-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .age-modal-content p {
-                font-size: 0.9rem;
-            }
-
-            .age-btn-yes,
-            .age-btn-no {
-                padding: 12px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* SEÇÕES RESPONSIVAS */
-        .why-buy-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .why-buy-text {
-            order: 1;
-        }
-
-        .why-buy-image {
-            order: 2;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .why-buy-section {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .why-buy-text {
-                order: 2;
-            }
-
-            .why-buy-image {
-                order: 1;
-            }
-        }
-
-        /* VIDEO AULAS SEÇÃO */
-        .video-aulas-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: start;
-        }
-
-        .video-player-container {
-            order: 1;
-        }
-
-        .video-playlist-container {
-            background: rgba(211, 47, 47, 0.1);
-            border: 2px solid #d32f2f;
-            border-radius: 10px;
-            padding: 20px;
-            max-height: 500px;
-            overflow-y: auto;
-            order: 2;
-        }
-
-        @media (max-width: 1024px) {
-            .video-aulas-section {
-                grid-template-columns: 1fr 1.2fr;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .video-aulas-section {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .video-player-container {
-                order: 1;
-            }
-
-            .video-playlist-container {
-                order: 2;
-                max-height: 400px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .video-aulas-section {
-                gap: 20px;
-            }
-
-            .video-playlist-container {
-                max-height: 300px;
-                padding: 15px;
-            }
-
-            .video-playlist-container h3 {
-                font-size: 0.9rem;
-            }
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -599,21 +78,9 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .feature-card {
@@ -621,38 +88,24 @@
             border: 2px solid #d32f2f;
             border-radius: 8px;
             padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            text-align: center;
         }
 
-        .card-number {
-            background: #d32f2f;
-            color: white;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .card-content {
-            text-align: left;
+        .feature-card span {
+            display: block;
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 10px;
         }
 
         .feature-card h3 {
             color: #fff;
-            margin-bottom: 5px;
-            font-size: 1rem;
+            margin-bottom: 10px;
         }
 
         .feature-card p {
             color: #999;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         /* PRICING */
@@ -758,539 +211,7 @@
             box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
         }
 
-        .premium-card {
-            border: 3px solid #22c55e !important;
-            position: relative;
-        }
-
-        .badge-mais-vendido {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #22c55e;
-            color: white;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            z-index: 10;
-        }
-
-        .price-premium {
-            font-size: 3rem;
-            color: #22c55e;
-            font-weight: bold;
-            margin: 25px 0;
-        }
-
-        .btn-buy-premium {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background: #22c55e;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.05rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .btn-buy-premium:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
-        }
-
-        .basic-card {
-            padding: 30px 20px !important;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .basic-card h3 {
-            font-size: 1.3rem !important;
-        }
-
-        .basic-card .subtitle {
-            font-size: 0.85rem !important;
-        }
-
-        .basic-card ul {
-            margin-bottom: 15px !important;
-        }
-
-        .basic-card li {
-            padding: 8px 0 !important;
-            font-size: 0.9rem;
-        }
-
-        /* RESPONSIVO - MOBILE FIRST */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .features h2 {
-                font-size: 1.8rem;
-            }
-
-            .pricing h2 {
-                font-size: 1.8rem;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .premium-card {
-                order: -1;
-            }
-
-            .basic-card {
-                max-width: 100%;
-            }
-
-            .testimonials h2 {
-                font-size: 1.8rem;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .feature-card {
-                gap: 10px;
-            }
-
-            .card-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .card-content h3 {
-                font-size: 0.9rem;
-            }
-
-            .card-content p {
-                font-size: 0.8rem;
-            }
-
-            .price-card {
-                padding: 25px 15px !important;
-            }
-
-            .price-card ul {
-                max-height: 300px;
-                overflow-y: auto;
-            }
-
-            .price-card li {
-                padding: 8px 0 !important;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 14px;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 60px 15px;
-                min-height: 400px;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-            }
-
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-
-            .hero-image {
-                margin: 20px 0;
-            }
-
-            .features,
-            .pricing,
-            .testimonials {
-                padding: 50px 15px !important;
-            }
-
-            .features h2,
-            .pricing h2,
-            .testimonials h2 {
-                font-size: 1.4rem;
-                margin-bottom: 30px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr !important;
-                gap: 15px;
-            }
-
-            .feature-card {
-                padding: 15px !important;
-                gap: 12px;
-            }
-
-            .card-number {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
-            .card-content h3 {
-                font-size: 0.85rem;
-            }
-
-            .card-content p {
-                font-size: 0.75rem;
-            }
-
-            .price-card {
-                padding: 20px 12px !important;
-            }
-
-            .price-card h3 {
-                font-size: 1.2rem !important;
-            }
-
-            .price-card .subtitle {
-                font-size: 0.75rem;
-            }
-
-            .price {
-                font-size: 2rem;
-            }
-
-            .price-premium {
-                font-size: 2.5rem;
-            }
-
-            .btn-buy,
-            .btn-buy-premium {
-                padding: 12px !important;
-                font-size: 0.9rem;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr !important;
-                gap: 20px;
-            }
-
-            .testimonial {
-                padding: 20px !important;
-            }
-
-            .testimonial-avatar {
-                width: 60px;
-                height: 60px;
-            }
-
-            .badge-mais-vendido {
-                font-size: 0.75rem;
-                padding: 6px 15px;
-                top: -12px;
-            }
-
-            .guarantee {
-                padding: 50px 15px !important;
-            }
-
-            .guarantee h2 {
-                font-size: 1.4rem;
-            }
-        }
-
-        /* RESPONSIVO - TABLET */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .premium-card {
-                order: -1;
-                max-width: 600px;
-                margin: 0 auto;
-            }
-
-            .basic-card {
-                max-width: 600px;
-                margin: 0 auto;
-            }
-        }
-
-        /* RESPONSIVO - DESKTOP */
-        @media (min-width: 1025px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* RESPONSIVO - LAYOUT FLEX PARA GARANTIA */
-        @media (max-width: 768px) {
-            .guarantee-content {
-                flex-direction: column !important;
-                gap: 30px !important;
-            }
-
-            .guarantee-image,
-            .guarantee-text {
-                flex: 1 !important;
-                min-width: 100% !important;
-            }
-        }
-
-        /* RESPONSIVO - BÔNUS */
-        @media (max-width: 768px) {
-            .bonus-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        /* RESPONSIVO - FOOTER */
-        @media (max-width: 480px) {
-            footer {
-                padding: 30px 15px !important;
-            }
-
-            footer p {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* RESPONSIVO - VIEWPORT META */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* RESPONSIVO - INPUT TOUCH FRIENDLY */
-        @media (hover: none) and (pointer: coarse) {
-            .btn-buy,
-            .btn-buy-premium,
-            a {
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
-        /* RESPONSIVO - IMAGENS */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* RESPONSIVO - HERO IMAGE */
-        .hero-image {
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* RESPONSIVO - MOBILE NAV */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 12px;
-            }
-        }
-
-        /* RESPONSIVO - GARANTIA LAYOUT */
-        @media (max-width: 768px) {
-            .guarantee {
-                text-align: center;
-            }
-
-            .guarantee-flex {
-                flex-direction: column !important;
-            }
-
-            .guarantee img {
-                max-width: 150px;
-                margin: 0 auto 20px;
-            }
-        }
-
-        /* RESPONSIVO - ESPAÇAMENTO */
-        @media (max-width: 480px) {
-            section {
-                padding: 40px 0 !important;
-            }
-
-            .features,
-            .pricing,
-            .testimonials,
-            .guarantee {
-                padding: 40px 15px !important;
-            }
-        }
-
-        /* RESPONSIVO - BÔNUS LAYOUT */
-        @media (max-width: 768px) {
-            .bonus-item {
-                flex: 1 !important;
-                min-width: 100% !important;
-            }
-        }
-
-        /* RESPONSIVO - TEXT SIZES */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5rem !important; }
-            h2 { font-size: 1.3rem !important; }
-            h3 { font-size: 1.1rem !important; }
-        }
-
-        /* RESPONSIVO - PADDING/MARGIN */
-        @media (max-width: 480px) {
-            .price-card,
-            .testimonial,
-            .feature-card {
-                margin-bottom: 15px;
-            }
-        }
-
-        /* RESPONSIVO - HERO ADJUSTMENTS */
-        @media (max-width: 768px) {
-            .hero {
-                background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
-            }
-        }
-
-        /* RESPONSIVO - PRICING GRID FIX */
-        .pricing-grid {
-            max-width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .pricing-grid {
-                max-width: 100%;
-            }
-        }
-
-        /* RESPONSIVO - FEATURES LAST */
-        @media (max-width: 768px) {
-            .features-grid {
-                padding: 0;
-            }
-        }
-
-        /* RESPONSIVO - BUTTON SIZING */
-        .btn-buy,
-        .btn-buy-premium {
-            width: 100%;
-            min-height: 44px;
-        }
-
-        @media (max-width: 480px) {
-            .btn-buy,
-            .btn-buy-premium {
-                padding: 15px 10px !important;
-                min-height: 48px;
-            }
-        }
-
-        /* RESPONSIVO - FINAL ADJUSTMENTS */
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        input,
-        select,
-        textarea,
-        button {
-            font-size: 16px;
-        }
-
-        /* RESPONSIVO - HERO GRADIENT */
-        @media (max-width: 480px) {
-            .hero {
-                min-height: 350px;
-            }
-        }
-
-        /* RESPONSIVO - BORDER RADIUS */
-        @media (max-width: 480px) {
-            .feature-card,
-            .price-card,
-            .testimonial {
-                border-radius: 8px;
-            }
-        }
-
-        /* RESPONSIVO - VIEWPORT */
-        @media (max-width: 320px) {
-            .hero-content h1 {
-                font-size: 1.2rem;
-                letter-spacing: 1px;
-            }
-
-            .features h2,
-            .pricing h2,
-            .testimonials h2 {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* RESPONSIVO */
-        .bonus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .bonus-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .bonus-grid {
-                gap: 20px;
-            }
-        }
-
+        /* TESTIMONIALS */
         .testimonials {
             padding: 80px 20px;
             background: #0f0f0f;
@@ -1329,20 +250,7 @@
             font-weight: bold;
         }
 
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 15px;
-            border: 3px solid #d32f2f;
-        }
-
-        .testimonial-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        /* GUARANTEE */
         .guarantee {
             padding: 60px 20px;
             background: #1a1a1a;
@@ -1383,37 +291,6 @@
     </style>
 </head>
 <body>
-    <!-- MODAL SIMPLES DE DOWNSELL -->
-    <div id="exitModal" class="exit-modal">
-        <div class="exit-modal-content">
-            <h2>ESPERA! Você tem uma oferta especial 🎁</h2>
-            <p class="exit-riscado">De <s>R$ 37,90</s> por apenas...</p>
-            <p class="exit-promo">R$ 9,97</p>
-            <p class="exit-desc">Acesso completo a TUDO</p>
-            <p class="exit-subtitle">+130 Vídeo Aulas • App iOS/Android • Certificado • Acesso Vitalício</p>
-
-            <div class="exit-buttons">
-                <a href="https://pay.wiapy.com/1mLLanUp_G-g" class="exit-btn-yes" onclick="rastrearCheckout(9.97, 'Downsell R$9,97')">
-                    QUERO A OFERTA
-                </a>
-                <button class="exit-btn-no" id="exitBtnNo" type="button">
-                    NÃO, OBRIGADO
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DE IDADE -->
-    <div id="ageModal" class="age-modal">
-        <div class="age-modal-content">
-            <h2>Verificação de Idade</h2>
-            <p>Este site contém conteúdo adulto.</p>
-            <p style="font-weight: bold; color: #d32f2f;">Você tem mais de 18 anos?</p>
-            <button id="ageBtnYes" class="age-btn-yes">SIM, TENHO MAIS DE 18 ANOS</button>
-            <button id="ageBtnNo" class="age-btn-no">NÃO TENHO 18 ANOS</button>
-        </div>
-    </div>
-
     <!-- META PIXEL -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -1489,15 +366,15 @@
     <section style="padding: 80px 20px; background: #1a1a1a;">
         <div class="container">
             <h2 style="text-align: center; font-size: 2.2rem; color: #d32f2f; margin-bottom: 40px; text-transform: uppercase;">PORQUE EU DEVERIA COMPRAR ESTE CURSO?</h2>
-            <div class="why-buy-section">
-                <div class="why-buy-text">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto;">
+                <div>
                     <p style="color: #e0e0e0; margin-bottom: 15px;">Qualquer outro curso de massagem tântrica hoje você não paga menos de <strong>R$497,00</strong> e ainda com modelos de borracha...</p>
                     <p style="color: #e0e0e0; margin-bottom: 15px;">Em nosso curso você vai assistir tudo com modelos reais na prática e toda parte teórica avançada.</p>
                     <p style="color: #e0e0e0; margin-bottom: 15px;">E ainda vai aprender as massagens nuru, orgástica, sensitiva e muito mais...</p>
                     <p style="color: #e0e0e0;">São mais de <strong style="color: #d32f2f;">60 Video Aulas Completas</strong> desde às teóricas e práticas com modelos reais para te tornar um ou uma especialista.</p>
                 </div>
-                <div class="why-buy-image">
-                    <img src="./mockup-curso (1).png" alt="Mockup do Curso" style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 40px rgba(211, 47, 47, 0.2); width: 100%;">
+                <div style="text-align: center;">
+                    <img src="./mockup-curso (1).png" alt="Mockup do Curso" style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 40px rgba(211, 47, 47, 0.2);">
                 </div>
             </div>
         </div>
@@ -1508,9 +385,9 @@
         <div class="container">
             <h2 style="text-align: center; font-size: 2.2rem; color: #d32f2f; margin-bottom: 60px; text-transform: uppercase;">VIDEO AULAS COM MODELOS REAIS!</h2>
             
-            <div class="video-aulas-section">
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; align-items: start;">
                 <!-- PLAYER -->
-                <div class="video-player-container">
+                <div>
                     <div style="background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
                         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
                             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center;">
@@ -1525,7 +402,7 @@
                 </div>
 
                 <!-- PLAYLIST -->
-                <div class="video-playlist-container">
+                <div style="background: rgba(211, 47, 47, 0.1); border: 2px solid #d32f2f; border-radius: 10px; padding: 20px; max-height: 500px; overflow-y: auto;">
                     <h3 style="color: #d32f2f; margin-bottom: 20px; font-size: 1rem;">Conteúdo (27)</h3>
                     
                     <div style="padding: 12px; border-left: 3px solid #666; margin-bottom: 10px; cursor: pointer;">
@@ -1575,112 +452,31 @@
     <!-- FEATURES -->
     <section class="features">
         <div class="container">
-            <h2>Veja tudo que você vai aprender!</h2>
+            <h2>O QUE VOCÊ VAI APRENDER</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="card-number">01</div>
-                    <div class="card-content">
-                        <h3>Aplicativo para iOS e Android</h3>
-                        <p>Acesso mobile completo</p>
-                    </div>
+                    <span>●</span>
+                    <h3>Videos com modelos reais "daquele jeito"</h3>
                 </div>
                 <div class="feature-card">
-                    <div class="card-number">02</div>
-                    <div class="card-content">
-                        <h3>Aulas - Teóricas Avançadas</h3>
-                        <p>Fundamentos científicos</p>
-                    </div>
+                    <span>●</span>
+                    <h3>Técnicas para Mulheres</h3>
                 </div>
                 <div class="feature-card">
-                    <div class="card-number">03</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Relaxante</h3>
-                        <p>Técnicas de base</p>
-                    </div>
+                    <span>●</span>
+                    <h3>Paga Apenas uma Vez</h3>
                 </div>
                 <div class="feature-card">
-                    <div class="card-number">04</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Erótica</h3>
-                        <p>Toques sensuais</p>
-                    </div>
+                    <span>●</span>
+                    <h3>Técnicas para Homens</h3>
                 </div>
                 <div class="feature-card">
-                    <div class="card-number">05</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Japonesa</h3>
-                        <p>Nuru e técnicas orientais</p>
-                    </div>
+                    <span>●</span>
+                    <h3>Acesso Vitalício</h3>
                 </div>
                 <div class="feature-card">
-                    <div class="card-number">06</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Tântrica</h3>
-                        <p>Práticas tradicionais</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">07</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Lingam</h3>
-                        <p>Técnicas masculinas</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">08</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Yoni</h3>
-                        <p>Técnicas femininas</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">09</div>
-                    <div class="card-content">
-                        <h3>Aulas - Massagem Orgástica</h3>
-                        <p>Prazer intenso</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">10</div>
-                    <div class="card-content">
-                        <h3>Aulas - Pontos de Prazer</h3>
-                        <p>Mapa erógeno</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">11</div>
-                    <div class="card-content">
-                        <h3>Aulas - Sexo Oral</h3>
-                        <p>Técnicas avançadas</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">12</div>
-                    <div class="card-content">
-                        <h3>Aulas - Esguicho Feminino</h3>
-                        <p>Squirting</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">13</div>
-                    <div class="card-content">
-                        <h3>Aulas - Pompoarismo</h3>
-                        <p>Feminino e Masculino</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">14</div>
-                    <div class="card-content">
-                        <h3>Mapa Erógeno</h3>
-                        <p>Guia completo</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-number">15</div>
-                    <div class="card-content">
-                        <h3>Músicas para Tantra</h3>
-                        <p>Trilha sonora</p>
-                    </div>
+                    <span>●</span>
+                    <h3>Acesso Imediato após a Inscrição</h3>
                 </div>
             </div>
         </div>
@@ -1692,26 +488,25 @@
             <h2>ESCOLHA SEU PLANO</h2>
             <div class="pricing-grid">
                 <!-- PLANO BÁSICO -->
-                <div class="price-card basic-card">
+                <div class="price-card">
                     <div style="margin-bottom: 20px; max-height: 150px; overflow: hidden; border-radius: 8px;">
                         <img src="./mockup-curso (1).png" alt="Mockup Básico" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <h3>PLANO BÁSICO</h3>
                     <p class="subtitle">10 Aulas Básicas Introdutórias</p>
-                    <ul style="max-height: 200px; overflow: hidden;">
+                    <ul>
                         <li>Aplicativo iOS/Android</li>
                         <li>Massagem Tântrica - Teórica</li>
                         <li>Massagem Orgástica - Teórica</li>
                     </ul>
-                    <p style="color: #d32f2f; font-weight: bold; margin: 15px 0;">SEM CERTIFICADO</p>
-                    <p style="color: #999; font-size: 0.85rem;">PAGAMENTO ÚNICO</p>
+                    <p style="color: #999;">SEM CERTIFICADO</p>
+                    <p style="color: #999;">PAGAMENTO ÚNICO</p>
                     <div class="price">R$ 18,90</div>
                     <a href="https://pay.wiapy.com/hhWCQBEwcEEh" class="btn-buy" onclick="rastrearCheckout(18.90, 'Plano Básico')">QUERO O PLANO BÁSICO</a>
                 </div>
 
                 <!-- PLANO PREMIUM -->
-                <div class="price-card premium-card">
-                    <div class="badge-mais-vendido">MAIS VENDIDO</div>
+                <div class="price-card">
                     <div style="margin-bottom: 20px; max-height: 150px; overflow: hidden; border-radius: 8px;">
                         <img src="./mockup-curso (1).png" alt="Mockup Premium" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
@@ -1726,31 +521,11 @@
                         <li>Massagem Erótica - Prática</li>
                         <li>Massagem Japonesa - Prática</li>
                         <li>Massagem Lingam - Prática</li>
-                        <li>Massagem Tântrica Relaxante - Prática</li>
-                        <li>Massagem Yoni - Prática</li>
-                        <li>Massagem Tântrica Quicktantra - Prática</li>
-                        <li>Massagem Sensitiva - Prática</li>
-                        <li>Massagem Tântrica Energética - Prática</li>
-                        <li>Técnicas de Posições</li>
-                        <li>Pontos de Prazer</li>
-                        <li>Sexo Oral</li>
-                        <li>Esguicho Feminino</li>
-                        <li>Pompoarismo Feminino</li>
-                        <li>Pompoarismo Masculino</li>
-                        <li>Mapa Erógeno</li>
-                        <li>Músicas Ambiente para Tântra</li>
-                        <li>Músicas Ambiente sobre Sexo</li>
-                        <li>2 Bônus Especiais</li>
-                        <li>Certificado de Conclusão</li>
                     </ul>
-                    <div style="text-align: center; margin: 25px 0;">
-                        <p style="color: #d32f2f; text-decoration: line-through; margin-bottom: 5px;">Valor Total: R$ 397.00</p>
-                        <p style="color: #999; font-size: 0.9rem;">DE R$ 397.00 POR APENAS...</p>
-                    </div>
-                    <div class="price-premium">R$ 37,90</div>
-                    <p style="color: #999; text-align: center; margin: 15px 0;">Pagamento único • Acesso vitalício • Sem mensalidades</p>
-                    <a href="https://pay.wiapy.com/xxZK8aNw7uYZ" class="btn-buy-premium" onclick="rastrearCheckout(37.90, 'Plano Premium')">SIM! QUERO O PLANO PREMIUM!</a>
-                    <p style="color: #d32f2f; text-align: center; margin-top: 15px; font-size: 0.85rem;">APROVEITE AGORA! Você NÃO vai encontrar esses preços depois</p>
+                    <p style="color: #999;">COM CERTIFICADO</p>
+                    <p style="color: #999;">PAGAMENTO ÚNICO</p>
+                    <div class="price">R$ 37,90</div>
+                    <a href="https://pay.wiapy.com/xxZK8aNw7uYZ" class="btn-buy" onclick="rastrearCheckout(37.90, 'Plano Premium')">QUERO O PLANO PREMIUM</a>
                 </div>
             </div>
         </div>
@@ -1762,23 +537,14 @@
             <h2>O QUE QUEM JÁ FEZ ESTÁ FALANDO</h2>
             <div class="testimonials-grid">
                 <div class="testimonial">
-                    <div class="testimonial-avatar">
-                        <img src="./fernanda.jpg" alt="fernanda_santos">
-                    </div>
                     <p>"Fiz o curso há 2 meses e mudou completamente minha relação! As técnicas de massagem tântrica são incríveis, meu parceiro ficou impressionado 😍 Totalmente indico!"</p>
                     <p class="author">fernanda_santos</p>
                 </div>
                 <div class="testimonial">
-                    <div class="testimonial-avatar">
-                        <img src="./carlos.jpg" alt="carlos.ribeiro_">
-                    </div>
                     <p>"Melhor investimento que fiz! As aulas são bem explicadas e práticas. Já recomendei pra vários amigos. O app pra assistir no celular é muito prático 👍"</p>
                     <p class="author">carlos.ribeiro_</p>
                 </div>
                 <div class="testimonial">
-                    <div class="testimonial-avatar">
-                        <img src="./amanda.jpg" alt="amanda_lima">
-                    </div>
                     <p>"As teóricas avançadas abriram minha mente! Nunca imaginei que autoconhecimento fizesse tanta diferença na intimidade. Curso completo e com certificado 🔥"</p>
                     <p class="author">amanda_lima</p>
                 </div>
@@ -1841,68 +607,6 @@
     </footer>
 
     <script>
-    (function () {
-        var exitModal   = document.getElementById('exitModal');
-        var exitBtnNo   = document.getElementById('exitBtnNo');
-        var jaMostrou   = false;
-        var armado      = false;
-
-        // Abre o downsell
-        function abrirDownsell() {
-            if (jaMostrou || !exitModal) return;
-            exitModal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            jaMostrou = true;
-            console.log('💰 Downsell aberto');
-        }
-
-        // Fecha o downsell e deixa a pessoa sair
-        function fecharDownsell() {
-            if (!exitModal) return;
-            exitModal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Arma a trava do botão voltar.
-        // Coloca uma entrada extra no histórico: quando a pessoa aperta
-        // voltar, ela cai nessa entrada em vez de sair do site.
-        window.armarDownsell = function () {
-            if (armado) return;
-            armado = true;
-            history.pushState({ downsell: true }, '', location.href);
-            console.log('🔒 Trava do botão voltar armada');
-        };
-
-        // Dispara quando a pessoa aperta VOLTAR
-        window.addEventListener('popstate', function () {
-            if (!armado) return;
-
-            if (!jaMostrou) {
-                // Recoloca a entrada para continuar no site e mostra a oferta
-                history.pushState({ downsell: true }, '', location.href);
-                abrirDownsell();
-            }
-            // Se já mostrou uma vez, deixa sair normalmente
-        });
-
-        // Botão NÃO, OBRIGADO: fecha e sai do site
-        if (exitBtnNo) {
-            exitBtnNo.addEventListener('click', function () {
-                fecharDownsell();
-                history.back();
-            });
-        }
-
-        // Fechar clicando fora do card
-        if (exitModal) {
-            exitModal.addEventListener('click', function (e) {
-                if (e.target === exitModal) fecharDownsell();
-            });
-        }
-    })();
-    </script>
-
-    <script>
         function rastrearCheckout(preco, plano) {
             console.log(`🔴 CLICOU: ${plano} - R$ ${preco.toFixed(2)}`);
             
@@ -1933,48 +637,93 @@
             }
         }
 
+        // RASTREAMENTO DE PÁGINA CARREGADA
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'ViewContent', {
+                content_type: 'product',
+                content_name: 'Curso Massagem Tântrica',
+                currency: 'BRL'
+            });
+            console.log('✅ Meta Pixel: ViewContent disparado');
+        }
+
+        // Utimify - Rastreamento de PageView
+        try {
+            if (typeof window.utimify !== 'undefined') {
+                window.utimify.track('page_view', {
+                    page: 'home',
+                    title: 'Curso Massagem Tântrica',
+                    timestamp: new Date().toISOString()
+                });
+                console.log('✅ Utimify: Page View rastreado');
+            } else {
+                console.log('⏳ Utimify ainda carregando...');
+            }
+        } catch (error) {
+            console.log('Utimify carregando...');
+        }
+
+        // RASTREAMENTO DE SCROLL DEPTH
+        let scrollTracked = {
+            '25': false,
+            '50': false,
+            '75': false,
+            '100': false
+        };
+
+        window.addEventListener('scroll', function() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            if (scrollPercentage >= 25 && !scrollTracked['25']) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'ViewContent', { scroll_depth: '25%' });
+                }
+                if (typeof window.utimify !== 'undefined') {
+                    window.utimify.track('scroll_depth', { depth: '25%' });
+                }
+                scrollTracked['25'] = true;
+                console.log('✅ Scroll 25% rastreado');
+            }
+            
+            if (scrollPercentage >= 50 && !scrollTracked['50']) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'ViewContent', { scroll_depth: '50%' });
+                }
+                if (typeof window.utimify !== 'undefined') {
+                    window.utimify.track('scroll_depth', { depth: '50%' });
+                }
+                scrollTracked['50'] = true;
+                console.log('✅ Scroll 50% rastreado');
+            }
+            
+            if (scrollPercentage >= 75 && !scrollTracked['75']) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'ViewContent', { scroll_depth: '75%' });
+                }
+                if (typeof window.utimify !== 'undefined') {
+                    window.utimify.track('scroll_depth', { depth: '75%' });
+                }
+                scrollTracked['75'] = true;
+                console.log('✅ Scroll 75% rastreado');
+            }
+            
+            if (scrollPercentage >= 100 && !scrollTracked['100']) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'ViewContent', { scroll_depth: '100%' });
+                }
+                if (typeof window.utimify !== 'undefined') {
+                    window.utimify.track('scroll_depth', { depth: '100%' });
+                }
+                scrollTracked['100'] = true;
+                console.log('✅ Scroll 100% rastreado');
+            }
+        });
+
         console.log('%c🎯 SITE CARREGADO COM SUCESSO', 'color: green; font-weight: bold; font-size: 16px');
         console.log('%c✅ Meta Pixel Ativo (ID: 2258617738296037)', 'color: green; font-weight: bold');
-        console.log('%c✅ Utimify Pixel Ativo', 'color: green; font-weight: bold');
-        console.log('%c✅ Clique em "Comprar Agora" para testar eventos', 'color: blue; font-weight: bold');
-    </script>
-
-    <!-- VERIFICAÇÃO DE IDADE -->
-    <script>
-    (function () {
-        var modal  = document.getElementById('ageModal');
-        var btnSim = document.getElementById('ageBtnYes');
-        var btnNao = document.getElementById('ageBtnNo');
-
-        function liberarSite() {
-            if (modal) {
-                modal.style.display = 'none';
-                modal.classList.add('hidden');
-            }
-            // Só arma a trava do botão voltar depois de liberar o site
-            if (typeof window.armarDownsell === 'function') {
-                window.armarDownsell();
-            }
-        }
-
-        // Se já confirmou antes, libera direto
-        if (localStorage.getItem('ageConfirmed') === 'true') {
-            liberarSite();
-        }
-
-        if (btnSim) {
-            btnSim.onclick = function () {
-                localStorage.setItem('ageConfirmed', 'true');
-                liberarSite();
-            };
-        }
-
-        if (btnNao) {
-            btnNao.onclick = function () {
-                window.location.href = 'https://www.google.com';
-            };
-        }
-    })();
+        console.log('%c✅ Utimify Ativo - Rastreando Visitantes', 'color: green; font-weight: bold');
+        console.log('%c✅ Scroll Depth sendo rastreado', 'color: blue; font-weight: bold');
+        console.log('%c✅ Clique em "Comprar Agora" para testar checkout', 'color: blue; font-weight: bold');
     </script>
 </body>
 </html>
