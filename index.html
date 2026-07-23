@@ -29,7 +29,7 @@
             display: none;
             align-items: center;
             justify-content: center;
-            z-index: 9998;
+            z-index: 9997;
             animation: fadeIn 0.3s ease;
         }
 
@@ -205,10 +205,11 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
+            overflow: hidden;
         }
 
         .age-modal.hidden {
-            display: none;
+            display: none !important;
         }
 
         .age-modal-content {
@@ -1287,6 +1288,7 @@
     </div>
 
     <!-- MODAL DE IDADE -->
+    <div id="ageModal" class="age-modal">
         <div class="age-modal-content">
             <h2>Verificação de Idade</h2>
             <p>Este site contém conteúdo adulto.</p>
@@ -1295,6 +1297,7 @@
             <button id="ageBtnNo" class="age-btn-no">NÃO TENHO 18 ANOS</button>
         </div>
     </div>
+
     <!-- META PIXEL -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -1726,23 +1729,31 @@
         // DOWNSELL - EXIT INTENT
         let downsellShown = false;
 
+        // Detectar quando mouse sai da página (topo)
         document.addEventListener('mouseleave', function(e) {
             if (e.clientY <= 0 && !downsellShown) {
                 showDownsell();
             }
         });
 
-        // Detectar tentativa de sair via barra de endereço ou aba
-        window.addEventListener('beforeunload', function(e) {
-            if (!downsellShown) {
+        // Detectar tecla ESC para tentar sair
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !downsellShown) {
+                e.preventDefault();
                 showDownsell();
-                downsellShown = true;
             }
         });
 
         function showDownsell() {
             const downsellModal = document.getElementById('downsellModal');
+            const ageModal = document.getElementById('ageModal');
+            
             if (downsellModal && !downsellShown) {
+                // Se o modal de idade ainda estiver visível, não mostrar downsell
+                if (ageModal && !ageModal.classList.contains('hidden')) {
+                    return;
+                }
+                
                 downsellModal.classList.add('show');
                 downsellShown = true;
                 
@@ -1753,21 +1764,20 @@
             }
         }
 
-        // Fechar botão X
+        // Fechar botão X do downsell
         document.addEventListener('DOMContentLoaded', function() {
             const closeBtn = document.getElementById('closeDownsell');
             const downsellModal = document.getElementById('downsellModal');
             
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function() {
+            if (closeBtn && downsellModal) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
                     downsellModal.classList.remove('show');
                     downsellShown = true;
                 });
             }
-        });
 
-        // MODAL DE VERIFICAÇÃO DE IDADE
-        window.addEventListener('load', function() {
+            // MODAL DE VERIFICAÇÃO DE IDADE
             const ageModal = document.getElementById('ageModal');
             const ageBtnYes = document.getElementById('ageBtnYes');
             const ageBtnNo = document.getElementById('ageBtnNo');
@@ -1779,15 +1789,21 @@
             }
 
             // Botão SIM
-            ageBtnYes.addEventListener('click', function() {
-                localStorage.setItem('ageConfirmed', 'true');
-                ageModal.classList.add('hidden');
-            });
+            if (ageBtnYes) {
+                ageBtnYes.addEventListener('click', function() {
+                    localStorage.setItem('ageConfirmed', 'true');
+                    ageModal.classList.add('hidden');
+                    // Permitir downsell depois que confirmar idade
+                    downsellShown = false;
+                });
+            }
 
             // Botão NÃO
-            ageBtnNo.addEventListener('click', function() {
-                window.location.href = 'https://www.google.com';
-            });
+            if (ageBtnNo) {
+                ageBtnNo.addEventListener('click', function() {
+                    window.location.href = 'https://www.google.com';
+                });
+            }
         });
     </script>
 
