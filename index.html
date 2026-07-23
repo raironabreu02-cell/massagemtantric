@@ -53,11 +53,17 @@
             font-weight: bold;
         }
 
+        .exit-riscado {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
         .exit-promo {
             font-size: 3rem;
             color: #22c55e;
             font-weight: bold;
-            margin: 15px 0;
+            margin: 5px 0 10px;
         }
 
         .exit-desc {
@@ -1378,60 +1384,21 @@
 </head>
 <body>
     <!-- MODAL SIMPLES DE DOWNSELL -->
-    <div id="exitModal" class="exit-modal" style="display: none;">
+    <div id="exitModal" class="exit-modal">
         <div class="exit-modal-content">
-            <h2>ESPERA! Você tem uma oferta especial! 🎁</h2>
+            <h2>ESPERA! Você tem uma oferta especial 🎁</h2>
+            <p class="exit-riscado">De <s>R$ 37,90</s> por apenas...</p>
             <p class="exit-promo">R$ 9,97</p>
             <p class="exit-desc">Acesso completo a TUDO</p>
-            <p class="exit-subtitle">+130 Vídeo Aulas | App iOS/Android | Certificado</p>
-            
+            <p class="exit-subtitle">+130 Vídeo Aulas • App iOS/Android • Certificado • Acesso Vitalício</p>
+
             <div class="exit-buttons">
-                <a href="https://pay.wiapy.com/1mLLanUp_G-g" class="exit-btn-yes" onclick="rastrearCheckout(9.97, 'Exit Intent Downsell')">
+                <a href="https://pay.wiapy.com/1mLLanUp_G-g" class="exit-btn-yes" onclick="rastrearCheckout(9.97, 'Downsell R$9,97')">
                     QUERO A OFERTA
                 </a>
-                <button class="exit-btn-no" id="exitBtnNo">
+                <button class="exit-btn-no" id="exitBtnNo" type="button">
                     NÃO, OBRIGADO
                 </button>
-            </div>
-        </div>
-    </div>
-        <div class="downsell-content">
-            <button id="closeDownsell" class="downsell-close">&times;</button>
-            <h2>ESPERA! NÃO VÁ EMBORA 🛑</h2>
-            <p class="downsell-subtitle">Você está perdendo uma oportunidade ÚNICA!</p>
-            
-            <div class="downsell-offer">
-                <p style="color: #999; font-size: 0.9rem; margin-bottom: 10px;">PROMOÇÃO RELÂMPAGO - APENAS PARA QUEM ESTAVA SAINDO:</p>
-                
-                <div class="downsell-price-box">
-                    <div class="downsell-original">
-                        <span style="text-decoration: line-through; color: #999;">R$ 37,90</span>
-                        <p style="font-size: 0.8rem; color: #999;">Preço Normal</p>
-                    </div>
-                    
-                    <div class="downsell-arrow">→</div>
-                    
-                    <div class="downsell-promotional">
-                        <span style="font-size: 3rem; color: #22c55e; font-weight: bold;">R$ 9,97</span>
-                        <p style="font-size: 0.85rem; color: #22c55e; font-weight: bold;">73% OFF!</p>
-                    </div>
-                </div>
-
-                <p style="color: #e0e0e0; margin: 20px 0; text-align: center; font-weight: bold;">Acesso COMPLETO a TUDO por apenas R$9,97</p>
-
-                <ul style="text-align: left; margin: 20px 0; color: #e0e0e0;">
-                    <li style="margin-bottom: 8px;">✅ +130 Vídeo Aulas com Modelos Reais</li>
-                    <li style="margin-bottom: 8px;">✅ App iOS e Android</li>
-                    <li style="margin-bottom: 8px;">✅ Certificado de Conclusão</li>
-                    <li style="margin-bottom: 8px;">✅ Acesso Vitalício</li>
-                    <li style="margin-bottom: 8px;">✅ Garantia de 30 Dias</li>
-                </ul>
-
-                <p style="color: #d32f2f; font-weight: bold; text-align: center; margin: 20px 0;">⚠️ Esta oferta expira em 5 minutos!</p>
-
-                <a href="https://pay.wiapy.com/1mLLanUp_G-g" class="downsell-btn" onclick="rastrearCheckout(9.97, 'Downsell Premium')">QUERO A OFERTA DE R$9,97!</a>
-
-                <p style="color: #999; font-size: 0.8rem; text-align: center; margin-top: 15px;">Pagamento único • Sem risco • Garantia de 30 dias</p>
             </div>
         </div>
     </div>
@@ -1874,50 +1841,65 @@
     </footer>
 
     <script>
-        console.log('🎯 Exit Intent Script carregado');
+    (function () {
+        var exitModal   = document.getElementById('exitModal');
+        var exitBtnNo   = document.getElementById('exitBtnNo');
+        var jaMostrou   = false;
+        var armado      = false;
 
-        let exitShown = false;
-
-        // Detectar tentativa de sair
-        window.addEventListener('beforeunload', function(e) {
-            if (!exitShown) {
-                console.log('👈 Tentativa de sair detectada!');
-                showExitModal();
-                exitShown = true;
-            }
-        });
-
-        // Mostrar modal
-        function showExitModal() {
-            const exitModal = document.getElementById('exitModal');
-            if (exitModal) {
-                exitModal.classList.add('show');
-                console.log('✅ Modal de exit apareceu!');
-            }
+        // Abre o downsell
+        function abrirDownsell() {
+            if (jaMostrou || !exitModal) return;
+            exitModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            jaMostrou = true;
+            console.log('💰 Downsell aberto');
         }
 
-        // Botão "NÃO, OBRIGADO"
-        const exitBtnNo = document.getElementById('exitBtnNo');
+        // Fecha o downsell e deixa a pessoa sair
+        function fecharDownsell() {
+            if (!exitModal) return;
+            exitModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Arma a trava do botão voltar.
+        // Coloca uma entrada extra no histórico: quando a pessoa aperta
+        // voltar, ela cai nessa entrada em vez de sair do site.
+        window.armarDownsell = function () {
+            if (armado) return;
+            armado = true;
+            history.pushState({ downsell: true }, '', location.href);
+            console.log('🔒 Trava do botão voltar armada');
+        };
+
+        // Dispara quando a pessoa aperta VOLTAR
+        window.addEventListener('popstate', function () {
+            if (!armado) return;
+
+            if (!jaMostrou) {
+                // Recoloca a entrada para continuar no site e mostra a oferta
+                history.pushState({ downsell: true }, '', location.href);
+                abrirDownsell();
+            }
+            // Se já mostrou uma vez, deixa sair normalmente
+        });
+
+        // Botão NÃO, OBRIGADO: fecha e sai do site
         if (exitBtnNo) {
-            exitBtnNo.addEventListener('click', function() {
-                console.log('Usuário clicou em NÃO');
-                const exitModal = document.getElementById('exitModal');
-                if (exitModal) {
-                    exitModal.classList.remove('show');
-                }
-                exitShown = true;
+            exitBtnNo.addEventListener('click', function () {
+                fecharDownsell();
+                history.back();
             });
         }
 
-        // Verificar idade
-        const ageConfirmed = localStorage.getItem('ageConfirmed');
-        const ageModal = document.getElementById('ageModal');
-        if (ageConfirmed === 'true' && ageModal) {
-            ageModal.style.display = 'none';
-            ageModal.classList.add('hidden');
+        // Fechar clicando fora do card
+        if (exitModal) {
+            exitModal.addEventListener('click', function (e) {
+                if (e.target === exitModal) fecharDownsell();
+            });
         }
-
-        console.log('✅ Exit Intent pronto!');
+    })();
     </script>
 
     <script>
@@ -1957,28 +1939,42 @@
         console.log('%c✅ Clique em "Comprar Agora" para testar eventos', 'color: blue; font-weight: bold');
     </script>
 
-    <!-- SCRIPT DE IDADE SIMPLES -->
+    <!-- VERIFICAÇÃO DE IDADE -->
     <script>
-        setTimeout(function() {
-            var modal = document.getElementById('ageModal');
-            var btnSim = document.getElementById('ageBtnYes');
-            var btnNao = document.getElementById('ageBtnNo');
-            
-            if (btnSim) {
-                btnSim.onclick = function() {
-                    console.log('SIM CLICADO');
-                    localStorage.setItem('ageConfirmed', 'true');
-                    modal.style.display = 'none';
-                };
+    (function () {
+        var modal  = document.getElementById('ageModal');
+        var btnSim = document.getElementById('ageBtnYes');
+        var btnNao = document.getElementById('ageBtnNo');
+
+        function liberarSite() {
+            if (modal) {
+                modal.style.display = 'none';
+                modal.classList.add('hidden');
             }
-            
-            if (btnNao) {
-                btnNao.onclick = function() {
-                    console.log('NÃO CLICADO');
-                    window.location.href = 'https://www.google.com';
-                };
+            // Só arma a trava do botão voltar depois de liberar o site
+            if (typeof window.armarDownsell === 'function') {
+                window.armarDownsell();
             }
-        }, 100);
+        }
+
+        // Se já confirmou antes, libera direto
+        if (localStorage.getItem('ageConfirmed') === 'true') {
+            liberarSite();
+        }
+
+        if (btnSim) {
+            btnSim.onclick = function () {
+                localStorage.setItem('ageConfirmed', 'true');
+                liberarSite();
+            };
+        }
+
+        if (btnNao) {
+            btnNao.onclick = function () {
+                window.location.href = 'https://www.google.com';
+            };
+        }
+    })();
     </script>
 </body>
 </html>
