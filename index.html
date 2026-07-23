@@ -1726,20 +1726,13 @@
 
     <script>
     <script>
+        console.log('🔍 Script iniciado');
+
         // DOWNSELL - EXIT INTENT
         let downsellShown = false;
 
-        // Detectar quando mouse sai da página (topo)
         document.addEventListener('mouseleave', function(e) {
             if (e.clientY <= 0 && !downsellShown) {
-                showDownsell();
-            }
-        });
-
-        // Detectar tecla ESC para tentar sair
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !downsellShown) {
-                e.preventDefault();
                 showDownsell();
             }
         });
@@ -1749,7 +1742,6 @@
             const ageModal = document.getElementById('ageModal');
             
             if (downsellModal && !downsellShown) {
-                // Se o modal de idade ainda estiver visível, não mostrar downsell
                 if (ageModal && !ageModal.classList.contains('hidden')) {
                     return;
                 }
@@ -1757,71 +1749,66 @@
                 downsellModal.classList.add('show');
                 downsellShown = true;
                 
-                // Remover após 5 minutos se não clicar
                 setTimeout(function() {
                     downsellModal.classList.remove('show');
-                }, 300000); // 5 minutos
+                }, 300000);
             }
         }
 
-        // Inicializar assim que o documento estiver pronto
-        function initializeModals() {
-            // Fechar botão X do downsell
-            const closeBtn = document.getElementById('closeDownsell');
-            const downsellModal = document.getElementById('downsellModal');
-            
-            if (closeBtn && downsellModal) {
-                closeBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
+        // Fechar downsell
+        const closeBtn = document.getElementById('closeDownsell');
+        if (closeBtn) {
+            closeBtn.onclick = function() {
+                const downsellModal = document.getElementById('downsellModal');
+                if (downsellModal) {
                     downsellModal.classList.remove('show');
                     downsellShown = true;
-                });
-            }
+                }
+            };
+        }
 
-            // MODAL DE VERIFICAÇÃO DE IDADE
-            const ageModal = document.getElementById('ageModal');
-            const ageBtnYes = document.getElementById('ageBtnYes');
-            const ageBtnNo = document.getElementById('ageBtnNo');
+        // MODAL DE IDADE - SIMPLES E DIRETO
+        const ageModal = document.getElementById('ageModal');
+        const ageBtnYes = document.getElementById('ageBtnYes');
+        const ageBtnNo = document.getElementById('ageBtnNo');
 
-            if (!ageModal || !ageBtnYes || !ageBtnNo) {
-                console.error('Elementos do modal de idade não encontrados');
-                return;
-            }
+        console.log('ageModal:', ageModal);
+        console.log('ageBtnYes:', ageBtnYes);
+        console.log('ageBtnNo:', ageBtnNo);
 
-            // Verificar se já foi confirmado
-            const ageConfirmed = localStorage.getItem('ageConfirmed');
-            if (ageConfirmed === 'true') {
-                ageModal.classList.add('hidden');
-            }
+        // Verificar se já foi confirmado
+        const ageConfirmed = localStorage.getItem('ageConfirmed');
+        if (ageConfirmed === 'true' && ageModal) {
+            console.log('Idade já confirmada - ocultando modal');
+            ageModal.style.display = 'none';
+            ageModal.classList.add('hidden');
+        }
 
-            // Botão SIM - TENHO MAIS DE 18 ANOS
-            ageBtnYes.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Botão SIM clicado');
+        // Botão SIM
+        if (ageBtnYes) {
+            ageBtnYes.onclick = function() {
+                console.log('✅ Botão SIM clicado');
                 localStorage.setItem('ageConfirmed', 'true');
-                ageModal.classList.add('hidden');
-                // Permitir downsell depois que confirmar idade
+                if (ageModal) {
+                    ageModal.style.display = 'none';
+                    ageModal.classList.add('hidden');
+                }
                 downsellShown = false;
-                console.log('Modal de idade oculto');
-            });
+                console.log('✅ Modal de idade oculto');
+                return false;
+            };
+        }
 
-            // Botão NÃO - NÃO TENHO 18 ANOS
-            ageBtnNo.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Botão NÃO clicado - redirecionando');
+        // Botão NÃO
+        if (ageBtnNo) {
+            ageBtnNo.onclick = function() {
+                console.log('❌ Botão NÃO clicado - redirecionando');
                 window.location.href = 'https://www.google.com';
-            });
+                return false;
+            };
         }
 
-        // Verificar se o DOM já foi carregado
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeModals);
-        } else {
-            // DOM já foi carregado
-            initializeModals();
-        }
+        console.log('🔍 Script de idade finalizado');
     </script>
 
     <script>
