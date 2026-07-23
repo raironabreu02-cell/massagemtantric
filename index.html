@@ -80,6 +80,12 @@
             font-size: 2rem;
             cursor: pointer;
             transition: color 0.3s ease;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
         }
 
         .downsell-close:hover {
@@ -1729,9 +1735,47 @@
 
         // DOWNSELL - EXIT INTENT
         let downsellShown = false;
+        let userInteracted = false;
 
+        // Detectar quando mouse sai da página (desktop)
         document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !downsellShown) {
+            if (e.clientY <= 0 && !downsellShown && userInteracted) {
+                showDownsell();
+            }
+        });
+
+        // Detectar qualquer interação do usuário
+        document.addEventListener('click', function() {
+            userInteracted = true;
+        });
+        document.addEventListener('scroll', function() {
+            userInteracted = true;
+        });
+        document.addEventListener('touchstart', function() {
+            userInteracted = true;
+        });
+
+        // Mostrar downsell após 30 segundos se o usuário interagir
+        setTimeout(function() {
+            if (!downsellShown && userInteracted) {
+                console.log('⏰ Downsell por timeout ativado');
+                showDownsell();
+            }
+        }, 30000); // 30 segundos
+
+        // Detectar tentativa de sair
+        window.addEventListener('beforeunload', function(e) {
+            if (!downsellShown && userInteracted) {
+                e.preventDefault();
+                showDownsell();
+                return false;
+            }
+        });
+
+        // Detectar mudança de visibilidade (quando sai da aba)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && !downsellShown && userInteracted) {
+                console.log('👁️ Aba oculta - mostrando downsell');
                 showDownsell();
             }
         });
@@ -1741,16 +1785,19 @@
             const ageModal = document.getElementById('ageModal');
             
             if (downsellModal && !downsellShown) {
+                // Se o modal de idade ainda estiver visível, não mostrar downsell
                 if (ageModal && !ageModal.classList.contains('hidden')) {
                     return;
                 }
                 
                 downsellModal.classList.add('show');
                 downsellShown = true;
+                console.log('💰 DOWNSELL ATIVADO!');
                 
+                // Remover após 5 minutos se não clicar
                 setTimeout(function() {
                     downsellModal.classList.remove('show');
-                }, 300000);
+                }, 300000); // 5 minutos
             }
         }
 
