@@ -18,7 +18,130 @@
             line-height: 1.6;
         }
 
-        /* MODAL DE DOWNSELL */
+        /* MODAL SIMPLES DE EXIT INTENT */
+        .exit-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exit-modal-content {
+            background: #1a1a1a;
+            border: 3px solid #22c55e;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+        }
+
+        .exit-modal-content h2 {
+            font-size: 1.5rem;
+            color: #22c55e;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .exit-promo {
+            font-size: 3rem;
+            color: #22c55e;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .exit-desc {
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .exit-subtitle {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 25px;
+        }
+
+        .exit-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .exit-btn-yes,
+        .exit-btn-no {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .exit-btn-yes {
+            background: #22c55e;
+            color: white;
+        }
+
+        .exit-btn-yes:hover {
+            background: #16a34a;
+            transform: scale(1.02);
+        }
+
+        .exit-btn-no {
+            background: #333;
+            color: #ccc;
+            border: 2px solid #666;
+        }
+
+        .exit-btn-no:hover {
+            background: #444;
+            color: #fff;
+            border-color: #999;
+        }
+
+        .exit-btn-no:active,
+        .exit-btn-yes:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 480px) {
+            .exit-modal-content {
+                padding: 30px 20px;
+            }
+
+            .exit-modal-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .exit-promo {
+                font-size: 2.5rem;
+            }
+
+            .exit-desc {
+                font-size: 1rem;
+            }
+
+            .exit-btn-yes,
+            .exit-btn-no {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* MODAL DE DOWNSELL (EXIT INTENT) */
         .downsell-modal {
             position: fixed;
             top: 0;
@@ -1250,8 +1373,24 @@
     </style>
 </head>
 <body>
-    <!-- MODAL DE DOWNSELL (EXIT INTENT) -->
-    <div id="downsellModal" class="downsell-modal">
+    <!-- MODAL SIMPLES DE DOWNSELL -->
+    <div id="exitModal" class="exit-modal" style="display: none;">
+        <div class="exit-modal-content">
+            <h2>ESPERA! Você tem uma oferta especial! 🎁</h2>
+            <p class="exit-promo">R$ 9,97</p>
+            <p class="exit-desc">Acesso completo a TUDO</p>
+            <p class="exit-subtitle">+130 Vídeo Aulas | App iOS/Android | Certificado</p>
+            
+            <div class="exit-buttons">
+                <a href="https://pay.wiapy.com/1mLLanUp_G-g" class="exit-btn-yes" onclick="rastrearCheckout(9.97, 'Exit Intent Downsell')">
+                    QUERO A OFERTA
+                </a>
+                <button class="exit-btn-no" id="exitBtnNo">
+                    NÃO, OBRIGADO
+                </button>
+            </div>
+        </div>
+    </div>
         <div class="downsell-content">
             <button id="closeDownsell" class="downsell-close">&times;</button>
             <h2>ESPERA! NÃO VÁ EMBORA 🛑</h2>
@@ -1731,79 +1870,42 @@
     </footer>
 
     <script>
-        console.log('🔍 Exit Intent Mobile iniciado');
+        console.log('🎯 Exit Intent Script carregado');
 
-        let downsellShown = false;
+        let exitShown = false;
 
-        // DETECTAR TENTATIVA DE SAIR DO SITE (mobile)
-        
-        // 1. Quando tenta fechar a aba/navegador
+        // Detectar tentativa de sair
         window.addEventListener('beforeunload', function(e) {
-            if (!downsellShown) {
+            if (!exitShown) {
                 console.log('👈 Tentativa de sair detectada!');
-                showDownsell();
+                showExitModal();
+                exitShown = true;
             }
         });
 
-        // 2. Quando muda de aba ou app (mobile)
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden && !downsellShown) {
-                console.log('👁️ Saindo do app/aba detectado!');
-                showDownsell();
-            }
-        });
-
-        // 3. Quando tenta ir pra outra página
-        document.addEventListener('click', function(e) {
-            var target = e.target.closest('a');
-            if (target && target.href && !target.href.includes(window.location.hostname) && !downsellShown) {
-                e.preventDefault();
-                console.log('🔗 Tentativa de clicar em link externo!');
-                showDownsell();
-                return false;
-            }
-        });
-
-        function showDownsell() {
-            const downsellModal = document.getElementById('downsellModal');
-            const ageModal = document.getElementById('ageModal');
-            
-            if (downsellModal && !downsellShown) {
-                // Se modal de idade estiver visível, não mostrar
-                if (ageModal && !ageModal.classList.contains('hidden')) {
-                    return;
-                }
-                
-                downsellModal.classList.add('show');
-                downsellShown = true;
-                console.log('💰 DOWNSELL APARECEU!');
+        // Mostrar modal
+        function showExitModal() {
+            const exitModal = document.getElementById('exitModal');
+            if (exitModal) {
+                exitModal.style.display = 'flex';
+                console.log('✅ Modal de exit apareceu!');
             }
         }
 
-        // FECHAR DOWNSELL COM X
-        const closeBtn = document.getElementById('closeDownsell');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const downsellModal = document.getElementById('downsellModal');
-                if (downsellModal) {
-                    downsellModal.classList.remove('show');
-                    downsellShown = true;
-                    console.log('X clicado - downsell fechado');
+        // Botão "NÃO, OBRIGADO"
+        const exitBtnNo = document.getElementById('exitBtnNo');
+        if (exitBtnNo) {
+            exitBtnNo.addEventListener('click', function() {
+                console.log('Usuário clicou em NÃO');
+                const exitModal = document.getElementById('exitModal');
+                if (exitModal) {
+                    exitModal.style.display = 'none';
                 }
+                exitShown = true;
             });
         }
 
-        // COMPRAR DOWNSELL
-        const buyBtn = document.querySelector('.downsell-btn');
-        if (buyBtn) {
-            buyBtn.addEventListener('click', function(e) {
-                console.log('Compra clicada - liberando saída');
-                downsellShown = true;
-            });
-        }
-
-        // Verificar se idade já foi confirmada
+        // Verificar idade
         const ageConfirmed = localStorage.getItem('ageConfirmed');
         const ageModal = document.getElementById('ageModal');
         if (ageConfirmed === 'true' && ageModal) {
@@ -1811,7 +1913,7 @@
             ageModal.classList.add('hidden');
         }
 
-        console.log('✅ Exit Intent Mobile pronto!');
+        console.log('✅ Exit Intent pronto!');
     </script>
 
     <script>
