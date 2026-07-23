@@ -1733,30 +1733,38 @@
     <script>
         console.log('🔍 Script iniciado');
 
-        // DOWNSELL - EXIT INTENT (Apenas quando tenta sair)
+        // DOWNSELL - BLOQUEAR BOTÃO VOLTAR
         let downsellShown = false;
 
-        // Detectar quando mouse sai da página (sai pelo topo - desktop)
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !downsellShown) {
-                console.log('🖱️ Mouse saiu do topo - mostrando downsell');
-                showDownsell();
-            }
-        });
+        // Adicionar um estado ao histórico quando a página carrega
+        history.pushState(null, null, window.location.href);
 
-        // Detectar tentativa de sair via botão voltar ou fechar aba
-        window.addEventListener('beforeunload', function(e) {
+        // Quando o usuário clica no botão VOLTAR do navegador
+        window.addEventListener('popstate', function(e) {
+            e.preventDefault();
+            console.log('👈 Botão VOLTAR pressionado!');
+            
             if (!downsellShown) {
-                console.log('👈 Tentativa de sair - mostrando downsell');
+                // Adicionar outro estado para manter na página
+                history.pushState(null, null, window.location.href);
+                
+                // Mostrar downsell
                 showDownsell();
-                return false;
             }
         });
 
-        // Detectar mudança de visibilidade (quando sai da aba/janela no mobile)
+        // Também detectar mudança de visibilidade (mobile)
         document.addEventListener('visibilitychange', function() {
             if (document.hidden && !downsellShown) {
-                console.log('👁️ Aba/janela oculta - mostrando downsell');
+                console.log('👁️ Tentativa de sair (mobile)');
+                showDownsell();
+            }
+        });
+
+        // Detectar mouse saindo (desktop)
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !downsellShown) {
+                console.log('🖱️ Mouse saiu do topo');
                 showDownsell();
             }
         });
@@ -1773,16 +1781,17 @@
                 
                 downsellModal.classList.add('show');
                 downsellShown = true;
-                console.log('💰 DOWNSELL ATIVADO!');
+                console.log('💰 DOWNSELL BLOQUEANDO SAÍDA!');
                 
                 // Remover após 5 minutos se não clicar
                 setTimeout(function() {
                     downsellModal.classList.remove('show');
+                    downsellShown = false;
                 }, 300000); // 5 minutos
             }
         }
 
-        // Fechar downsell
+        // Fechar downsell (com X)
         const closeBtn = document.getElementById('closeDownsell');
         if (closeBtn) {
             closeBtn.onclick = function() {
