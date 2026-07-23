@@ -1725,7 +1725,6 @@
     </footer>
 
     <script>
-    <script>
         console.log('🔍 Script iniciado');
 
         // DOWNSELL - EXIT INTENT
@@ -1767,48 +1766,14 @@
             };
         }
 
-        // MODAL DE IDADE - SIMPLES E DIRETO
-        const ageModal = document.getElementById('ageModal');
-        const ageBtnYes = document.getElementById('ageBtnYes');
-        const ageBtnNo = document.getElementById('ageBtnNo');
-
-        console.log('ageModal:', ageModal);
-        console.log('ageBtnYes:', ageBtnYes);
-        console.log('ageBtnNo:', ageBtnNo);
-
-        // Verificar se já foi confirmado
+        // Verificar se idade já foi confirmada
         const ageConfirmed = localStorage.getItem('ageConfirmed');
+        const ageModal = document.getElementById('ageModal');
         if (ageConfirmed === 'true' && ageModal) {
             console.log('Idade já confirmada - ocultando modal');
             ageModal.style.display = 'none';
             ageModal.classList.add('hidden');
         }
-
-        // Botão SIM
-        if (ageBtnYes) {
-            ageBtnYes.onclick = function() {
-                console.log('✅ Botão SIM clicado');
-                localStorage.setItem('ageConfirmed', 'true');
-                if (ageModal) {
-                    ageModal.style.display = 'none';
-                    ageModal.classList.add('hidden');
-                }
-                downsellShown = false;
-                console.log('✅ Modal de idade oculto');
-                return false;
-            };
-        }
-
-        // Botão NÃO
-        if (ageBtnNo) {
-            ageBtnNo.onclick = function() {
-                console.log('❌ Botão NÃO clicado - redirecionando');
-                window.location.href = 'https://www.google.com';
-                return false;
-            };
-        }
-
-        console.log('🔍 Script de idade finalizado');
     </script>
 
     <script>
@@ -1846,6 +1811,30 @@
         console.log('%c✅ Meta Pixel Ativo (ID: 2258617738296037)', 'color: green; font-weight: bold');
         console.log('%c✅ Utimify Pixel Ativo', 'color: green; font-weight: bold');
         console.log('%c✅ Clique em "Comprar Agora" para testar eventos', 'color: blue; font-weight: bold');
+    </script>
+
+    <!-- SCRIPT DE IDADE SIMPLES -->
+    <script>
+        setTimeout(function() {
+            var modal = document.getElementById('ageModal');
+            var btnSim = document.getElementById('ageBtnYes');
+            var btnNao = document.getElementById('ageBtnNo');
+            
+            if (btnSim) {
+                btnSim.onclick = function() {
+                    console.log('SIM CLICADO');
+                    localStorage.setItem('ageConfirmed', 'true');
+                    modal.style.display = 'none';
+                };
+            }
+            
+            if (btnNao) {
+                btnNao.onclick = function() {
+                    console.log('NÃO CLICADO');
+                    window.location.href = 'https://www.google.com';
+                };
+            }
+        }, 100);
     </script>
 </body>
 </html>
