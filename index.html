@@ -1733,49 +1733,30 @@
     <script>
         console.log('🔍 Script iniciado');
 
-        // DOWNSELL - EXIT INTENT
+        // DOWNSELL - EXIT INTENT (Apenas quando tenta sair)
         let downsellShown = false;
-        let userInteracted = false;
 
-        // Detectar quando mouse sai da página (desktop)
+        // Detectar quando mouse sai da página (sai pelo topo - desktop)
         document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !downsellShown && userInteracted) {
+            if (e.clientY <= 0 && !downsellShown) {
+                console.log('🖱️ Mouse saiu do topo - mostrando downsell');
                 showDownsell();
             }
         });
 
-        // Detectar qualquer interação do usuário
-        document.addEventListener('click', function() {
-            userInteracted = true;
-        });
-        document.addEventListener('scroll', function() {
-            userInteracted = true;
-        });
-        document.addEventListener('touchstart', function() {
-            userInteracted = true;
-        });
-
-        // Mostrar downsell após 30 segundos se o usuário interagir
-        setTimeout(function() {
-            if (!downsellShown && userInteracted) {
-                console.log('⏰ Downsell por timeout ativado');
-                showDownsell();
-            }
-        }, 30000); // 30 segundos
-
-        // Detectar tentativa de sair
+        // Detectar tentativa de sair via botão voltar ou fechar aba
         window.addEventListener('beforeunload', function(e) {
-            if (!downsellShown && userInteracted) {
-                e.preventDefault();
+            if (!downsellShown) {
+                console.log('👈 Tentativa de sair - mostrando downsell');
                 showDownsell();
                 return false;
             }
         });
 
-        // Detectar mudança de visibilidade (quando sai da aba)
+        // Detectar mudança de visibilidade (quando sai da aba/janela no mobile)
         document.addEventListener('visibilitychange', function() {
-            if (document.hidden && !downsellShown && userInteracted) {
-                console.log('👁️ Aba oculta - mostrando downsell');
+            if (document.hidden && !downsellShown) {
+                console.log('👁️ Aba/janela oculta - mostrando downsell');
                 showDownsell();
             }
         });
