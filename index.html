@@ -1731,73 +1731,70 @@
     </footer>
 
     <script>
-        console.log('🔍 Script de bloqueio iniciado');
+        console.log('🔍 Script de histórico iniciado');
 
         let downsellShown = false;
-        let canLeave = false;
 
-        // Função para mostrar downsell e bloquear
-        function blockExit() {
+        // Quando a página CARREGA, adiciona dois estados falsos ao histórico
+        // Isso faz com que quando clique voltar, fique no site
+        history.pushState({page: 1}, '', window.location.href);
+        history.pushState({page: 2}, '', window.location.href);
+        
+        console.log('📍 Estados de histórico criados');
+
+        // Quando o usuário clica no botão VOLTAR
+        window.addEventListener('popstate', function(e) {
+            console.log('👈 VOLTAR PRESSIONADO! Mostrando downsell...');
+            
             if (!downsellShown) {
-                console.log('🚫 BLOQUEANDO SAÍDA - MOSTRANDO DOWNSELL');
-                const downsellModal = document.getElementById('downsellModal');
-                const ageModal = document.getElementById('ageModal');
-                
-                // Não mostrar se modal de idade estiver ativo
+                showDownsell();
+                // Adicionar outro estado para prender novamente
+                history.pushState({page: 3}, '', window.location.href);
+            }
+        });
+
+        function showDownsell() {
+            const downsellModal = document.getElementById('downsellModal');
+            const ageModal = document.getElementById('ageModal');
+            
+            if (downsellModal && !downsellShown) {
+                // Se o modal de idade ainda estiver visível, não mostrar downsell
                 if (ageModal && !ageModal.classList.contains('hidden')) {
                     return;
                 }
                 
-                if (downsellModal) {
-                    downsellModal.classList.add('show');
-                    downsellShown = true;
-                }
+                downsellModal.classList.add('show');
+                downsellShown = true;
+                console.log('💰 DOWNSELL APARECENDO NA TELA!');
+                
+                // Remover após 5 minutos se não clicar
+                setTimeout(function() {
+                    downsellModal.classList.remove('show');
+                    downsellShown = false;
+                }, 300000); // 5 minutos
             }
         }
 
-        // MÉTODO 1: Bloquear beforeunload (funciona na maioria dos navegadores)
-        window.addEventListener('beforeunload', function(e) {
-            if (!canLeave) {
-                console.log('beforeunload acionado - bloqueando');
-                blockExit();
-                e.preventDefault();
-                e.returnValue = '';
-                return '';
-            }
-        });
-
-        // MÉTODO 2: Se beforeunload não funcionar, tentar outro método
-        // Detectar quando tenta mudar de URL
-        let lastUrl = window.location.href;
-        window.addEventListener('hashchange', function() {
-            if (!canLeave) {
-                console.log('hashchange detectado - bloqueando');
-                blockExit();
-                // Voltar para a URL anterior
-                history.back();
-            }
-        });
-
-        // Botão para fechar downsell E permitir sair
+        // Botão X para FECHAR o downsell
         const closeBtn = document.getElementById('closeDownsell');
         if (closeBtn) {
-            closeBtn.onclick = function() {
-                console.log('X clicado - permitindo saída');
+            closeBtn.onclick = function(e) {
+                e.preventDefault();
+                console.log('X clicado - fechando downsell');
                 const downsellModal = document.getElementById('downsellModal');
                 if (downsellModal) {
                     downsellModal.classList.remove('show');
-                    canLeave = true;
-                    downsellShown = false;
+                    downsellShown = true;
                 }
             };
         }
 
-        // Botão de compra também permite sair (vai pro link de pagamento)
+        // Botão de compra
         const buyBtn = document.querySelector('.downsell-btn');
         if (buyBtn) {
             buyBtn.onclick = function() {
-                console.log('Compra clicada - permitindo saída');
-                canLeave = true;
+                console.log('Compra clicada');
+                downsellShown = true;
             };
         }
 
@@ -1810,7 +1807,7 @@
             ageModal.classList.add('hidden');
         }
 
-        console.log('✅ Script de bloqueio pronto');
+        console.log('✅ Script pronto - downsell ativado ao clicar VOLTAR');
     </script>
 
     <script>
