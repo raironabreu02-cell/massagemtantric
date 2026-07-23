@@ -1764,8 +1764,9 @@
             }
         }
 
-        // Fechar botão X do downsell
-        document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar assim que o documento estiver pronto
+        function initializeModals() {
+            // Fechar botão X do downsell
             const closeBtn = document.getElementById('closeDownsell');
             const downsellModal = document.getElementById('downsellModal');
             
@@ -1782,29 +1783,45 @@
             const ageBtnYes = document.getElementById('ageBtnYes');
             const ageBtnNo = document.getElementById('ageBtnNo');
 
+            if (!ageModal || !ageBtnYes || !ageBtnNo) {
+                console.error('Elementos do modal de idade não encontrados');
+                return;
+            }
+
             // Verificar se já foi confirmado
             const ageConfirmed = localStorage.getItem('ageConfirmed');
             if (ageConfirmed === 'true') {
                 ageModal.classList.add('hidden');
             }
 
-            // Botão SIM
-            if (ageBtnYes) {
-                ageBtnYes.addEventListener('click', function() {
-                    localStorage.setItem('ageConfirmed', 'true');
-                    ageModal.classList.add('hidden');
-                    // Permitir downsell depois que confirmar idade
-                    downsellShown = false;
-                });
-            }
+            // Botão SIM - TENHO MAIS DE 18 ANOS
+            ageBtnYes.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Botão SIM clicado');
+                localStorage.setItem('ageConfirmed', 'true');
+                ageModal.classList.add('hidden');
+                // Permitir downsell depois que confirmar idade
+                downsellShown = false;
+                console.log('Modal de idade oculto');
+            });
 
-            // Botão NÃO
-            if (ageBtnNo) {
-                ageBtnNo.addEventListener('click', function() {
-                    window.location.href = 'https://www.google.com';
-                });
-            }
-        });
+            // Botão NÃO - NÃO TENHO 18 ANOS
+            ageBtnNo.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Botão NÃO clicado - redirecionando');
+                window.location.href = 'https://www.google.com';
+            });
+        }
+
+        // Verificar se o DOM já foi carregado
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeModals);
+        } else {
+            // DOM já foi carregado
+            initializeModals();
+        }
     </script>
 
     <script>
