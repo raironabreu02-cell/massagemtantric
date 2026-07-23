@@ -1731,25 +1731,36 @@
     </footer>
 
     <script>
-        console.log('🔍 Script de histórico iniciado');
+        console.log('🔍 Exit Intent Mobile iniciado');
 
         let downsellShown = false;
 
-        // Quando a página CARREGA, adiciona dois estados falsos ao histórico
-        // Isso faz com que quando clique voltar, fique no site
-        history.pushState({page: 1}, '', window.location.href);
-        history.pushState({page: 2}, '', window.location.href);
+        // DETECTAR TENTATIVA DE SAIR DO SITE (mobile)
         
-        console.log('📍 Estados de histórico criados');
-
-        // Quando o usuário clica no botão VOLTAR
-        window.addEventListener('popstate', function(e) {
-            console.log('👈 VOLTAR PRESSIONADO! Mostrando downsell...');
-            
+        // 1. Quando tenta fechar a aba/navegador
+        window.addEventListener('beforeunload', function(e) {
             if (!downsellShown) {
+                console.log('👈 Tentativa de sair detectada!');
                 showDownsell();
-                // Adicionar outro estado para prender novamente
-                history.pushState({page: 3}, '', window.location.href);
+            }
+        });
+
+        // 2. Quando muda de aba ou app (mobile)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && !downsellShown) {
+                console.log('👁️ Saindo do app/aba detectado!');
+                showDownsell();
+            }
+        });
+
+        // 3. Quando tenta ir pra outra página
+        document.addEventListener('click', function(e) {
+            var target = e.target.closest('a');
+            if (target && target.href && !target.href.includes(window.location.hostname) && !downsellShown) {
+                e.preventDefault();
+                console.log('🔗 Tentativa de clicar em link externo!');
+                showDownsell();
+                return false;
             }
         });
 
@@ -1758,56 +1769,49 @@
             const ageModal = document.getElementById('ageModal');
             
             if (downsellModal && !downsellShown) {
-                // Se o modal de idade ainda estiver visível, não mostrar downsell
+                // Se modal de idade estiver visível, não mostrar
                 if (ageModal && !ageModal.classList.contains('hidden')) {
                     return;
                 }
                 
                 downsellModal.classList.add('show');
                 downsellShown = true;
-                console.log('💰 DOWNSELL APARECENDO NA TELA!');
-                
-                // Remover após 5 minutos se não clicar
-                setTimeout(function() {
-                    downsellModal.classList.remove('show');
-                    downsellShown = false;
-                }, 300000); // 5 minutos
+                console.log('💰 DOWNSELL APARECEU!');
             }
         }
 
-        // Botão X para FECHAR o downsell
+        // FECHAR DOWNSELL COM X
         const closeBtn = document.getElementById('closeDownsell');
         if (closeBtn) {
-            closeBtn.onclick = function(e) {
+            closeBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('X clicado - fechando downsell');
                 const downsellModal = document.getElementById('downsellModal');
                 if (downsellModal) {
                     downsellModal.classList.remove('show');
                     downsellShown = true;
+                    console.log('X clicado - downsell fechado');
                 }
-            };
+            });
         }
 
-        // Botão de compra
+        // COMPRAR DOWNSELL
         const buyBtn = document.querySelector('.downsell-btn');
         if (buyBtn) {
-            buyBtn.onclick = function() {
-                console.log('Compra clicada');
+            buyBtn.addEventListener('click', function(e) {
+                console.log('Compra clicada - liberando saída');
                 downsellShown = true;
-            };
+            });
         }
 
         // Verificar se idade já foi confirmada
         const ageConfirmed = localStorage.getItem('ageConfirmed');
         const ageModal = document.getElementById('ageModal');
         if (ageConfirmed === 'true' && ageModal) {
-            console.log('Idade já confirmada - ocultando modal');
             ageModal.style.display = 'none';
             ageModal.classList.add('hidden');
         }
 
-        console.log('✅ Script pronto - downsell ativado ao clicar VOLTAR');
+        console.log('✅ Exit Intent Mobile pronto!');
     </script>
 
     <script>
