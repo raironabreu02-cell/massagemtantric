@@ -27,9 +27,13 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
             z-index: 9999;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
+        }
+
+        .exit-modal.show {
+            display: flex;
         }
 
         .exit-modal-content {
@@ -1887,7 +1891,7 @@
         function showExitModal() {
             const exitModal = document.getElementById('exitModal');
             if (exitModal) {
-                exitModal.style.display = 'flex';
+                exitModal.classList.add('show');
                 console.log('✅ Modal de exit apareceu!');
             }
         }
@@ -1899,7 +1903,7 @@
                 console.log('Usuário clicou em NÃO');
                 const exitModal = document.getElementById('exitModal');
                 if (exitModal) {
-                    exitModal.style.display = 'none';
+                    exitModal.classList.remove('show');
                 }
                 exitShown = true;
             });
